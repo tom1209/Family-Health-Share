@@ -1,0 +1,12 @@
+/*
+ * Main stylesheet
+ */
+
+body {
+    background: white;
+    color: #666666; }
+
+#main {
+    position: relative;
+}
+
