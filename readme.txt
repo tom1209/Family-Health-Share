@@ -21,8 +21,10 @@ Family Health Share
 
 
 TODO (ShortTerm)
--Menu Bar
+-meteor remove insecure
 -Home Page, About Page, Login Page
 -MongoDB
+-User Login
+-Registration page
 
 
