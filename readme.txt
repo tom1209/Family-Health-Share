@@ -8,7 +8,7 @@ Family Health Share
     -Iron Router
     -ejson
     -ian:accounts-ui-bootstrap-3
-    -accounts-password
+    -accounts-password?
 
 -.meteor folder is the meteor code
 -The client folder holds data that is run only on the client side
