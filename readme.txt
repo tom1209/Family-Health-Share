@@ -26,5 +26,6 @@ TODO (ShortTerm)
 -MongoDB
 -User Login
 -Registration page
+-May have to redo Login, might not be able to use the default library I was using
 
 
