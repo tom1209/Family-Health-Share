@@ -2,13 +2,7 @@ Family Health Share
 
 -A social health history application for family members to share their family health information.
 
--Added external packages
-    -Bootstrap
-    -Underscore (Meteor add on)
-    -Iron Router
-    -ejson
-    -ian:accounts-ui-bootstrap-3
-    -accounts-password?
+**General Meteor Info**
 
 -.meteor folder is the meteor code
 -The client folder holds data that is run only on the client side
@@ -25,7 +19,7 @@ TODO (ShortTerm)
 -Home Page, About Page, Login Page
 -MongoDB
 -User Login
--Registration page
+-Registration pages
 -May have to redo Login, might not be able to use the default library I was using
-
+-Look up collection helpers and collection hooks
 
