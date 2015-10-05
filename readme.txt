@@ -16,10 +16,11 @@ Family Health Share
 
 TODO (ShortTerm)
 -meteor remove insecure
--Home Page, About Page, Login Page
+-For MongoDB I need to create the database, and sync it to the login function
 -MongoDB
 -User Login
--Registration pages
--May have to redo Login, might not be able to use the default library I was using
 -Look up collection helpers and collection hooks
+
+DONE
+-Home Page, About Page, Login Page, Register Page
 
