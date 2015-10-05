@@ -23,3 +23,5 @@ iron:router
 ejson
 ian:accounts-ui-bootstrap-3
 accounts-password
+accounts-base
+useraccounts:iron-routing
