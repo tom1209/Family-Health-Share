@@ -21,6 +21,9 @@ TODO (ShortTerm)
 -User Login
 -Look up collection helpers and collection hooks
 
+-Once user Accounts is fully created I can add the family aspect. 
+
 DONE
--Home Page, About Page, Login Page, Register Page
+-Home Page, About Page, Login Page, Register Page, Family Page 
+-Basic Setup
 
