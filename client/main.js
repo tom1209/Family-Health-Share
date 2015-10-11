@@ -4,4 +4,3 @@
 
 //Subscribing to health conditions collection
 Meteor.subscribe('healthConditions');
-Meteor.subscribe('users');
