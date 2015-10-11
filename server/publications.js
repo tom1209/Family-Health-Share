@@ -7,3 +7,8 @@
 Meteor.publish('healthConditions', function(){
     return HealthConditions.find();
 });
+
+//Publish Users collection
+//Meteor.publish('users', function(){
+ //  return Users.find();
+//});

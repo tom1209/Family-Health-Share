@@ -6,7 +6,7 @@
 Template.register.events({
     'submit form':function(e){
         e.preventDefault();
-        console.log("register firing!");
+        console.log("profile firing!");
         //Registration logic will go here
     }
 });
