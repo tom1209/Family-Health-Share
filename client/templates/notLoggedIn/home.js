@@ -1,4 +1,4 @@
 /**
- * Created by Tom on 2015-09-28.
- * Javascript file for home template
+ * Created by Tom
+ * If any logic for the home page, it will go here
  */
