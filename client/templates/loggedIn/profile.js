@@ -1,12 +1,5 @@
 /**
  * Created by tom on 2015-10-04.
- * Will be used when a new user wants to register an account
+ * Will be used when a new user wants to edit profile information
  */
 
-Template.register.events({
-    'submit form':function(e){
-        e.preventDefault();
-        console.log("profile firing!");
-        //Registration logic will go here
-    }
-});
