@@ -1,0 +1,23 @@
+<template name="profile">
+    <div class="container">
+        <div id="profileHeader">
+            <h1>Personal Information</h1>
+        </div>
+
+        <div id="personalInfo">
+            <p>Username: {{currentUser.username}}</p>
+            <p>First Name: {{currentUser.username}}</p>
+            <p>Last Name: {{currentUser.username}}</p>
+            <p>Middle Name: {{currentUser.username}}</p>
+            <p>Gender: {{currentUser.username}}</p>
+            <p>Date of Birth: {{currentUser.username}}</p>
+            <p>Health Conditions: {{currentUser.username}}</p>
+            <p>Family: {{currentUser.username}}</p>
+
+        </div>
+
+        <div id="editProfile">
+            <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
+        </div>
+    </div>
+</template>

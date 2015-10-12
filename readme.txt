@@ -15,7 +15,6 @@ Family Health Share
 
 
 TODO (ShortTerm)
--meteor remove insecure
 -Families collection
 -Update user profile
 -Look up collection helpers and collection hooks
