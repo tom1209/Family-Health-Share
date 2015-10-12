@@ -1,43 +1,23 @@
 <template name="profile">
-    <form role="form">
-        <div class="form-group">
-            <label for="userName">Username:</label>
-            <input type="text" class="form-control" id="userName" placeholder="Enter an Email Address for a Username">
+    <div class="container">
+        <div id="profileHeader">
+            <h1>Personal Information</h1>
         </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="8-20 Characters">
+
+        <div id="personalInfo">
+            <p>Username: {{currentUser.username}}</p>
+            <p>First Name: {{currentUser.username}}</p>
+            <p>Last Name: {{currentUser.username}}</p>
+            <p>Middle Name: {{currentUser.username}}</p>
+            <p>Gender: {{currentUser.username}}</p>
+            <p>Date of Birth: {{currentUser.username}}</p>
+            <p>Health Conditions: {{currentUser.username}}</p>
+            <p>Family: {{currentUser.username}}</p>
+
         </div>
-        <div class="form-group">
-            <label for="fName">First Name:</label>
-            <input type="text" class="form-control" id="fName">
+
+        <div id="editProfile">
+            <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
         </div>
-        <div class="form-group">
-            <label for="lName">Last Name:</label>
-            <input type="text" class="form-control" id="lName">
-        </div>
-        <div class="form-group">
-            <label for="mName">Middle Name:</label>
-            <input type="text" class="form-control" id="mName">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <input type="checkbox"> Male
-            <input type="checkbox"> Female
-        </div>
-        <div class="form-group">
-            <label for="DOB">Date of Birth:</label>
-            <input type="text" class="form-control" id="DOB" placeholder="DD/MM/YYYY">
-        </div>
-        <div class="form-group">
-            <label for="family">Family:</label>
-            <input type="text" class="form-control" id="family" placeholder="Optional">
-        </div>
-        <div class="form-group">
-            <label for="famPass">Family Password:</label>
-            <input type="password" class="form-control" id="famPass" placeholder="Optional">
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-        <button type="button" class="btn btn-default">Cancel</button>
-    </form>
+    </div>
 </template>

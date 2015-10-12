@@ -8,3 +8,7 @@ Meteor.publish('healthConditions', function(){
     return HealthConditions.find();
 });
 
+//Publish families collection
+Meteor.publish('families', function(){
+    return Families.find();
+});
