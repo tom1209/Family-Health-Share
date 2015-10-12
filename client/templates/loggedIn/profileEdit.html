@@ -1,12 +1,8 @@
-<template name="profile">
+<template name="profileEdit">
     <form role="form">
         <div class="form-group">
-            <label for="userName">Username:</label>
-            <input type="text" class="form-control" id="userName" placeholder="Enter an Email Address for a Username">
-        </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="8-20 Characters">
+            <label for="userName">Email Address:</label>
+            <input type="text" class="form-control" id="email" placeholder="example@somewhere.com">
         </div>
         <div class="form-group">
             <label for="fName">First Name:</label>
@@ -22,12 +18,16 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender:</label>
-            <input type="checkbox"> Male
-            <input type="checkbox"> Female
+            <input type="radio" name="gender" id="m"><label for="m">Male</label>
+            <input type="radio" name="gender" id="f"> <label for="f">Female</label>
         </div>
         <div class="form-group">
             <label for="DOB">Date of Birth:</label>
             <input type="text" class="form-control" id="DOB" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="form-group">
+            <label for="DOB">Health Conditions</label>
+            <input type="text" class="form-control" id="hc">
         </div>
         <div class="form-group">
             <label for="family">Family:</label>
@@ -37,7 +37,7 @@
             <label for="famPass">Family Password:</label>
             <input type="password" class="form-control" id="famPass" placeholder="Optional">
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default">Cancel</button>
     </form>
 </template>

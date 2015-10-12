@@ -16,9 +16,8 @@ Family Health Share
 
 TODO (ShortTerm)
 -meteor remove insecure
--For MongoDB I need to create the database, and sync it to the login function
--MongoDB
--User Login
+-Families collection
+-Update user profile
 -Look up collection helpers and collection hooks
 
 -Once user Accounts is fully created I can add the family aspect. 
@@ -26,6 +25,8 @@ TODO (ShortTerm)
 DONE
 -Home Page, About Page, Login Page, Register Page, Family Page 
 -Basic Setup
+-User Login
+-Health Conditions collection
 
 -Created Develop branch
 
