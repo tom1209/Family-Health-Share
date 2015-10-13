@@ -12,3 +12,4 @@ Meteor.publish('healthConditions', function(){
 Meteor.publish('families', function(){
     return Families.find();
 });
+
