@@ -18,21 +18,7 @@ Template.profileEdit.events({
             middleName: e.target.mName.value,
             DOB: e.target.DOB.value,
             gender: e.target.gender.value
-        }
-
-
-        //update the users table
-        /*Meteor.users.update(currentUserId, {$set:userInfo}, function (error) {
-            if (error) {
-                console.log("Unable to update: " + error);
-            }
-            else {
-                //Back to profile Page
-                //Router.go('profile', {_id: currentUserId});
-                console.log("Updated Succesfully");
-                console.log(currentUserId + " " + userInfo);
-            }
-        });*/
+        };
 
         //Calling Meteor Method used to update. This is so the insert isn't done directly from the client
         Meteor.call('userUpdate', userInfo, function(error, results){
@@ -42,9 +28,9 @@ Template.profileEdit.events({
             }
             else
             {
-                //Router.go('profile', {_id: currentUserId});
+                Router.go('profile', {_id: currentUserId});
                 console.log("Updated Succesfully");
-                console.log(currentUserId + " " + userInfo);
+                console.log(currentUserId + " " + userInfo.email);
             }
         });
     }
