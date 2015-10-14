@@ -19,6 +19,10 @@ TODO (ShortTerm)
 -Update user profile
 -Look up collection helpers and collection hooks
 
+
+BUGS
+-Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
+
 -Once user Accounts is fully created I can add the family aspect. 
 
 DONE

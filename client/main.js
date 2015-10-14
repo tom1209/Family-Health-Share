@@ -3,4 +3,9 @@
  */
 
 //Subscribing to health conditions and families collections
-Meteor.subscribe('healthConditions', 'families');
+Meteor.subscribe('healthConditions', 'families', 'userData');
+
+//Initializing the hooks package that was downloaded
+Meteor.startup(function(){
+    Hooks.init();
+});
