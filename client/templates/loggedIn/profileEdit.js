@@ -10,6 +10,8 @@ Template.profileEdit.events({
 
         var currentUserId = Meteor.userId();
 
+        //To keep the username
+
         //Get form variables
         var userInfo = {
             email: e.target.email.value,
@@ -21,7 +23,8 @@ Template.profileEdit.events({
         };
 
         //Calling Meteor Method used to update. This is so the insert isn't done directly from the client
-        Meteor.call('userUpdate', userInfo, function(error, results){
+        Meteor.users.update(Meteor.userId(), {$set: {profile: userInfo}});
+       /* Meteor.call('userUpdate', userInfo, function(error, results){
             if (error)
             {
                 console.log("Unable to update: " + error);
@@ -32,6 +35,6 @@ Template.profileEdit.events({
                 console.log("Updated Succesfully");
                 console.log(currentUserId + " " + userInfo.email);
             }
-        });
+        });*/
     }
 });
