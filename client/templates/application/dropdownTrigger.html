@@ -1,0 +1,13 @@
+<template name="healthConditionsDropdown">
+    {{#dropdownTrigger name=this}}
+        <button>Select Health Condition(s)</button>
+    {{/dropdownTrigger}}
+
+    {{#dropdown name=this classes="dropdown--menu" align="left"}}
+        <ul class="dropdown__menu">
+            {{#each HealthConditions}}
+                <li role="menuItem"><a href="#">{{this.name}}</a></li>
+            {{/each}}
+        </ul>
+    {{/dropdown}}
+</template>
