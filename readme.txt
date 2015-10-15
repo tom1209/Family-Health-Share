@@ -12,12 +12,14 @@ Family Health Share
 -Files in the lib dir load first
 -Files named main load last
 -Everything else loads in alphabetical order
+-Using meteor methods to allow users to securely update information on the server
 
 
 TODO (ShortTerm)
 -Families collection
 -Update user profile
 -Look up collection helpers and collection hooks
+-Check momentum package for good animations
 
 
 BUGS
