@@ -19,8 +19,13 @@
         <div id="editProfile" class="col-md-1">
             <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
         </div>
-        <div id="editProfile" class="col-md-1">
-            <button class="btn btn-success">Add Health Condition</button>
+        <div class="col-md-2">
+            <button id="addHealthCondition" class="btn btn-success">Add Health Condition</button>
+        </div>
+        <div id ="showHealthConditionText" class="col-md-4">
+            {{#if showHealthConditionText}}
+                {{> addHealthConditions}}
+            {{/if}}
         </div>
     </div>
 </template>
