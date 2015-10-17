@@ -17,9 +17,10 @@ Family Health Share
 
 TODO (ShortTerm)
 -Families collection
--Update user profile
 -Look up collection helpers and collection hooks
 -Check momentum package for good animations
+-Let user add health conditions
+-Do CSS, add health conditions slide in and out instead of appearing and disappearing
 
 
 BUGS
@@ -30,7 +31,7 @@ BUGS
 DONE
 -Home Page, About Page, Login Page, Register Page, Family Page 
 -Basic Setup
--User Login
+-User Login, profile
 -Health Conditions collection
 
 -Created Develop branch
