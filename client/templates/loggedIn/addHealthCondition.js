@@ -29,6 +29,7 @@ Template.addHealthConditions.helpers({
                     collection: HealthConditions,
                     field: 'name',
                     matchAll: true,
+                    sort:true,
                     template: Template.userPill
                 }
             ]
