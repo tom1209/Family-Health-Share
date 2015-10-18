@@ -12,9 +12,30 @@ Template.addHealthConditions.events({
 
     //If plus button is selected, verify that it is a valid selection, and health condition to user profile
     'click #add': function(e){
-        
+
     }
 });
+
+
+//This is for the autocomplete, I used a plugin from https://github.com/mizzao/meteor-autocomplete
+Template.addHealthConditions.helpers({
+    settings: function() {
+        return {
+            position: "bottom",
+            limit: 5,
+            rules: [
+                {
+                    // token: '',
+                    collection: HealthConditions,
+                    field: 'name',
+                    matchAll: true,
+                    template: Template.userPill
+                }
+            ]
+        };
+    }
+});
+
 
 
 
