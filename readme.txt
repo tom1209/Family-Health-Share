@@ -19,9 +19,8 @@ TODO (ShortTerm)
 -Families collection
 -Look up collection helpers and collection hooks
 -Check momentum package for good animations
--Let user add health conditions
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
-
+-Allow user ot add notes to health conditions
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
@@ -33,6 +32,7 @@ DONE
 -Basic Setup
 -User Login, profile
 -Health Conditions collection
+-User can add and delete health conditions
 
 -Created Develop branch
 
