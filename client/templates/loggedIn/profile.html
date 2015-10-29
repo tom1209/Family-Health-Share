@@ -13,8 +13,8 @@
             <p>Date of Birth: {{currentUser.profile.DOB}}</p>
             <p>Health Conditions:
                 {{#each currentUser.profile.conditions}}
-                    <div id="{{this.name}}"><strong>{{this.name}}</strong>
-                        <input type="image" width="22px" height="22px" src="img/redX.png" alt="deleteCondition" id="deleteCondition"/>
+                    <div><strong>{{this.name}}</strong>
+                        <input name="{{this.docId}}" type="image" width="22px" height="22px" src="img/redX.png" alt="deleteCondition" id="deleteCondition"/>
                     </div>
                 {{/each}}
             </p>
