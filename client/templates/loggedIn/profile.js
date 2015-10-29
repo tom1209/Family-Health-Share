@@ -15,7 +15,7 @@ Template.profile.events({
     'click #deleteCondition': function(e){
         var user = Meteor.userId();
         var condition = '';
-        Meteor.users.update(user, {$pull: {'profile.conditions': this.name}});
+        Meteor.users.update(user, {$pull: {'profile.conditions': {docId: this.docId}}});
     }
 });
 

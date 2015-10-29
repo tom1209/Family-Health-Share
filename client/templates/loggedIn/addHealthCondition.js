@@ -18,7 +18,7 @@ Template.addHealthConditions.events({
 
         //Insert into the user profile
         var user = Meteor.userId();
-        Meteor.users.update(user, {$push: {"profile.conditions": {$each: [{'name': conditions}]}}});
+        Meteor.users.update(user, {$push: {"profile.conditions": {$each: [{'name': conditions, 'docId': new Mongo.ObjectID()}]}}});
 
         //Reset the user input for future selection
         Session.set('showHealthConditionText', false);
