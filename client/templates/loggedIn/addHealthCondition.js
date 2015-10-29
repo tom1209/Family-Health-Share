@@ -11,8 +11,17 @@ Template.addHealthConditions.events({
     },
 
     //If plus button is selected, verify that it is a valid selection, and health condition to user profile
-    'click #add': function(e){
+    'click #add': function(e, t){
+        //Get the value from the user input
+        var conditions = t.find('#addCondition').value;
+        console.log(conditions);
 
+        //Insert into the user profile
+        var user = Meteor.userId();
+        Meteor.users.update(user, {$push: {"profile.conditions": {$each: [{'name': conditions}]}}});
+
+        //Reset the user input for future selection
+        Session.set('showHealthConditionText', false);
     }
 });
 
@@ -22,7 +31,7 @@ Template.addHealthConditions.helpers({
     settings: function() {
         return {
             position: "bottom",
-            limit: 5,
+            limit: 10,
             rules: [
                 {
                     // token: '',

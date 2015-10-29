@@ -3,6 +3,6 @@
  * general code to run on server
  */
 //Error happening on hooks library, known bug, this is a fix for now
-Meteor.methods({ eventsOnHooksInit : function(){} });
-
-
+Meteor.methods({
+    eventsOnHooksInit : function(){}
+});

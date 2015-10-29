@@ -6,12 +6,22 @@
 Session.set('showHealthConditionText', false);
 
 Template.profile.events({
+    //Display text area to add condition
     'click #addHealthCondition': function(){
         Session.set('showHealthConditionText', true);
+    },
+
+    //Delete a condition
+    'click #deleteCondition': function(e){
+        var user = Meteor.userId();
+        var condition = '';
+        Meteor.users.update(user, {$pull: {'profile.conditions': this.name}});
     }
 });
 
+//Helpers for profile page
 Template.profile.helpers({
+    //This helper is to set a session that will hide and display the addHealthConditions input
     'showHealthConditionText' : function() {
      return Session.get('showHealthConditionText');
      }
