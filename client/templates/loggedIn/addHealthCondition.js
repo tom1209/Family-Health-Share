@@ -14,7 +14,6 @@ Template.addHealthConditions.events({
     'click #add': function(e, t){
         //Get the value from the user input
         var conditions = t.find('#addCondition').value;
-        console.log(conditions);
 
         //Insert into the user profile
         var user = Meteor.userId();
