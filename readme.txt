@@ -21,6 +21,8 @@ TODO (ShortTerm)
 -Check momentum package for good animations
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
 -Allow user ot add notes to health conditions
+-Add validation to creating and joining Family
+-Actually, just in general I should probably add validation to all my inputs
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
