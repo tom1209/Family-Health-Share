@@ -1,4 +1,62 @@
 <template name="noFamily">
-    <p class="">It doesn't seem like you've registered with a family yet. Feel free to create a new Family Account, or join an existing one!</p>
+    <div class="container">
+        <p class="">It doesn't seem like you've registered with a family yet. Feel free to create a new Family Account, or join an existing one!</p>
+        <button type="submit" data-toggle="modal" data-target="#addFamilyForm" id="createFamily" class="btn btn-primary">Create New Family</button>
+        <button type="submit" data-toggle="modal" data-target="#addFamilyForm" id="joinFamily" class="btn btn-default">Join Existing Family</button>
+    </div>
+
+    <!-- Add family modal form-->
+    <div id="addFamilyForm" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        {{#if newFamily}}
+                            {{newTitle}}
+                        {{else}}
+                            {{joinTitle}}
+                        {{/if}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" name="userForm">
+                        {{#if passwordMismatch}}
+                            <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="familyID">FamilyID</label>
+                            <input type="text" class="form-control" id="familyID" name="familyID" required>
+                        </div>
+                        {{#if newFamily}}
+                            <div class="form-group">
+                                <label for="familyName">Family Name</label>
+                                <input type="text" class="form-control" id="familyName" name="familyName" required>
+                            </div>
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="familyPassword">Family Password</label>
+                            <input type="password" class="form-control" id="familyPassword" name="familyPassword" required>
+                        </div>
+                        {{#if newFamily}}
+                            <div class="form-group">
+                                <label for="familyPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                        {{/if}}
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="addFamily" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- End -->
 
 </template>

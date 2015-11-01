@@ -1,5 +1,9 @@
 <template name="family">
-    <div class="container">
-        <p>Family Page, Only seen if logged in</p>
-    </div>
+    <h1>Family Information</h1>
+    {{#if hasFamily = 'false'}}
+        {{> noFamily}}
+    {{else}}
+        {{> hasFamily}}
+    {{/if}}
+
 </template>
