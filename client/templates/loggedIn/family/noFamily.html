@@ -23,10 +23,19 @@
                 </div>
                 <div class="modal-body">
                     <form role="form" name="userForm">
+                        {{#if passwordMismatch}}
+                            <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+                        {{/if}}
                         <div class="form-group">
-                            <label for="familyName">Family Name</label>
-                            <input type="text" class="form-control" id="familyName" name="familyName" required>
+                            <label for="familyID">FamilyID</label>
+                            <input type="text" class="form-control" id="familyID" name="familyID" required>
                         </div>
+                        {{#if newFamily}}
+                            <div class="form-group">
+                                <label for="familyName">Family Name</label>
+                                <input type="text" class="form-control" id="familyName" name="familyName" required>
+                            </div>
+                        {{/if}}
                         <div class="form-group">
                             <label for="familyPassword">Family Password</label>
                             <input type="password" class="form-control" id="familyPassword" name="familyPassword" required>

@@ -12,6 +12,33 @@ Template.noFamily.events({
     //On the Join Family click
     'click #joinFamily': function(e){
         Session.set('newFamily', false);
+    },
+
+    //Insert family information into the database
+    'click #addFamily' : function(e,t) {
+        e.preventDefault();
+
+        /////This is for creating a family/////
+
+        //Get form input
+        var password =  t.find('#familyPassword').value;
+        var confirmPassword = t.find('#confirmPassword').value;
+        var familyID = t.find('#familyID').value;
+        var familyName = t.find('#familyName').value;
+
+        //Validate family password
+        if (password != confirmPassword)
+        {
+            Session.set('passwordMismatch', true);
+
+        }
+        else
+        {
+            Session.set('passwordMismatch', false);
+
+            //Insert
+            var user = Meteor.userId();
+        }
     }
 });
 
@@ -20,6 +47,15 @@ Template.noFamily.events({
 Template.noFamily.helpers({
     'newFamily' : function(){
         return Session.get('newFamily');
+    },
+
+    'passwordMismatch' : function(){
+        return Session.get('passwordMismatch');
+    },
+
+    'errorMessage' : function(){
+        errorMessage = "Passwords do not match";
+        return errorMessage;
     },
 
     newTitle: 'Create Family',
