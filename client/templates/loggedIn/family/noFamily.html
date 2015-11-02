@@ -23,33 +23,34 @@
                 </div>
                 <div class="modal-body">
                     <form role="form" name="userForm">
-                        {{#if passwordMismatch}}
-                            <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
-                        {{/if}}
-                        <div class="form-group">
+                        <div class="form-group {{errorClass 'familyID'}}">
                             <label for="familyID">FamilyID</label>
-                            <input type="text" class="form-control" id="familyID" name="familyID" required>
+                            <input type="text" class="form-control" id="familyID" name="familyID">
+                            <span class="help-block">{{errorMessage 'familyID'}}</span>
                         </div>
                         {{#if newFamily}}
-                            <div class="form-group">
+                            <div class="form-group {{errorClass 'familyName'}}">
                                 <label for="familyName">Family Name</label>
-                                <input type="text" class="form-control" id="familyName" name="familyName" required>
+                                <input type="text" class="form-control" id="familyName" name="familyName">
+                                <span class="help-block">{{errorMessage 'familyName'}}</span>
                             </div>
                         {{/if}}
-                        <div class="form-group">
+                        <div class="form-group {{errorClass 'familyPassword'}}">
                             <label for="familyPassword">Family Password</label>
-                            <input type="password" class="form-control" id="familyPassword" name="familyPassword" required>
+                            <input type="password" class="form-control" id="familyPassword" name="familyPassword">
+                            <span class="help-block">{{errorMessage 'familyPassword'}}</span>
                         </div>
                         {{#if newFamily}}
-                            <div class="form-group">
+                            <div class="form-group {{errorClass 'confirmPassword'}}">
                                 <label for="familyPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                <span class="help-block">{{errorMessage 'confirmPassword'}}</span>
                             </div>
                         {{/if}}
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="addFamily" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="addFamily" value="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
