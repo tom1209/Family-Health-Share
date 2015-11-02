@@ -14,3 +14,14 @@ body {
     width: 100%;
     text-align:center;
 }
+
+.errors {
+    position: fixed;
+    z-index: 10000;
+    padding: 10px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+}

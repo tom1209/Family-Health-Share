@@ -10,7 +10,7 @@ Meteor.methods({
 //On account creation, add the 'hasFamily' document to the account and set to false
 Accounts.onCreateUser(function(options, user){
     profile = {
-        hasFamily: 'false'
+        hasFamily: false
     };
 
     user.profile = profile;
