@@ -16,6 +16,7 @@ Template.noFamily.helpers({
     newTitle: 'Create Family',
     joinTitle: 'Join a Family',
 
+
     //Error checking
     errorMessage: function(field) {
         return Session.get('familySubmitErrors')[field];
@@ -26,6 +27,7 @@ Template.noFamily.helpers({
 });
 
 Template.noFamily.events({
+
 
     //Insert family information into the database
     'click #addFamily' : function(e,t) {
@@ -40,7 +42,11 @@ Template.noFamily.events({
             familyPassword: t.find('#familyPassword').value,
             confirmPassword: t.find('#confirmPassword').value
         };
-        console.log(family.familyID);
+
+        Meteor.call('familyInsert', family, function(error,result){
+            Router.go('family');
+        });
+
 
         //Inserting the data, using the familyInsert method we defined in the families.js collecton file
         Meteor.call('familyInsert', family, function(error, result) {
@@ -49,12 +55,23 @@ Template.noFamily.events({
                 return throwError(error.reason);
 
             // if the familyID entered already exists
-            if (result.familyExists)
-                throwError('This familyID is taken');
+            //if (result.familyExists)
+            //    alert('This familyID is taken');
 
-            Router.go('family');
+
         });
 
+        //Now we update the user profile to set the family in their profile
+        Meteor.users.update({
+            _id: Meteor.userId()
+        }, {
+            $set: {
+                'profile.hasFamily' : true
+            }
+        });
+
+        //Close the modal window
+        location.reload();
     },
 
     //On the create family click
