@@ -45,32 +45,27 @@ Template.noFamily.events({
 
         Meteor.call('familyInsert', family, function(error,result){
             Router.go('family');
-        });
-
-
-        //Inserting the data, using the familyInsert method we defined in the families.js collecton file
-        Meteor.call('familyInsert', family, function(error, result) {
-            // display the error to the user and abort
-            if (error)
-                return throwError(error.reason);
 
             // if the familyID entered already exists
             //if (result.familyExists)
             //    alert('This familyID is taken');
-
-
         });
+
 
         //Now we update the user profile to set the family in their profile
         Meteor.users.update({
             _id: Meteor.userId()
         }, {
             $set: {
-                'profile.hasFamily' : true
+                'profile.hasFamily' : true,
+                'profile.family' : {
+                    'familyName' : family.familyName,
+                    'familyId' : family.familyID
+                }
             }
         });
 
-        //Close the modal window
+        //Reload the family page after family has been set, which will show family info instead of selecting a family info
         location.reload();
     },
 

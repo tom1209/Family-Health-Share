@@ -3,10 +3,10 @@
  * Javascript file for family page
  */
 
-Session.set('isFamilySet', false);
-
 //When the page renders
 Template.family.rendered = function(){
+
+    Session.set('isFamilySet', false);
 
     //The reason I have to put everything in the autorun function is because the page is rendering before the user accounts
     //This means when I check the hasFamily property it returns undefined.
