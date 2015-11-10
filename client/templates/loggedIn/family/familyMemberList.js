@@ -5,6 +5,6 @@
 
 Template.familyMemberList.helpers({
     familyMembers: function() {
-
+        return Families.find({}, {sort:{ _id : -1 }});
     }
 });
