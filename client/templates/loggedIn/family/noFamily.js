@@ -44,8 +44,6 @@ Template.noFamily.events({
         };
 
         Meteor.call('familyInsert', family, function(error,result){
-            Router.go('family');
-
             // if the familyID entered already exists
             //if (result.familyExists)
             //    alert('This familyID is taken');
