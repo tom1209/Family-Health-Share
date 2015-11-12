@@ -17,14 +17,15 @@ Family Health Share
 **NOTE** I put back on autopublish and insecure to speed things up. Once I have all the functionality, I will take them back off
 
 TODO (ShortTerm)
--Families collection
--Look up collection helpers and collection hooks
 -Check momentum package for good animations
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
 -Allow user ot add notes to health conditions
 -Add validation to creating and joining Family
 -Actually, just in general I should probably add validation to all my inputs
 -Salt and hash family password
+-Join a family
+-Add all users health conditions to that family
+-Do not let users add the same health condition
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
@@ -35,7 +36,7 @@ DONE
 -Home Page, About Page, Login Page, Register Page, Family Page 
 -Basic Setup
 -User Login, profile
--Health Conditions collection
+-Health Conditions collection, Families collection
 -User can add and delete health conditions
 
 -Created Develop branch
