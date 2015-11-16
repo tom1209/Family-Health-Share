@@ -29,15 +29,13 @@ Template.noFamily.helpers({
 Template.noFamily.events({
 
 
-    //Insert family information into the database
+    ////////////Insert family information into the database, This is for creating from scratch//////////
     'click #addFamily' : function(e,t) {
         e.preventDefault();
-        /////This is for creating a family/////
 
         //Get form input
         var family = {
             familyID : t.find('#familyID').value,
-            //familyID: $(e.target).find('[name=familyID]').val(),
             familyName: t.find('#familyName').value,
             familyPassword: t.find('#familyPassword').value,
             confirmPassword: t.find('#confirmPassword').value
@@ -48,7 +46,6 @@ Template.noFamily.events({
             //if (result.familyExists)
             //    alert('This familyID is taken');
         });
-
 
         //Now we update the user profile to set the family in their profile
         Meteor.users.update({
@@ -62,9 +59,20 @@ Template.noFamily.events({
                 }
             }
         });
-
         //Reload the family page after family has been set, which will show family info instead of selecting a family info
         location.reload();
+    },
+
+
+    //////////This is for joining a family that already exists in the database//////////
+    'click #joinFamily' : function(e,t) {
+        e.preventDefault();
+
+        //Get form input
+        var family = {
+            familyID : t.find('#familyID').value,
+            familyPassword: t.find('#familyPassword').value
+        };
     },
 
     //On the create family click

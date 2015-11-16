@@ -14,7 +14,7 @@ Family Health Share
 -Everything else loads in alphabetical order
 -Using meteor methods to allow users to securely update information on the server
 
-**NOTE** I put back on autopublish and insecure to speed things up. Once I have all the functionality, I will take them back off
+**NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take them back off
 
 TODO (ShortTerm)
 -Check momentum package for good animations
