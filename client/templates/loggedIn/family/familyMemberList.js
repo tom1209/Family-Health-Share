@@ -3,16 +3,19 @@
  * Display the list of family members
  */
 
-Session.set('userFamilyId', null);
-
-Template.familyMemberList.rendered = function(){
-    var currentUserId = this._id;
-    Session.set('userFamilyId', currentUserId.profile.family.familyID);
-}
-
 //For the family specific to the user to display on the family members list
 Template.familyMemberList.helpers({
     familyMembers: function() {
-        return Families.find({ familyID : Session.get(userFamilyId)}, {sort:{ _id : -1 }});
+
+        //Get the familyID of the logged in user
+        var userId = Meteor.userId();
+        var user = Meteor.users.findOne({_id: userId});
+        //return Meteor.users.find({_id: userId}, {fields: {username: 1, profile: 1}});
+
+        //Use that family ID to query the families collection and return the names of the individuals associated with that family
+        var familyId = user.profile.family.familyId;
+        console.log(familyId);
+
+        return Families.find({ familyID : familyId}, {sort:{ _id : -1 }});
     }
 });

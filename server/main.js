@@ -11,7 +11,11 @@ Meteor.methods({
 
 Accounts.onCreateUser(function(options, user){
     profile = {
-        hasFamily: false
+        hasFamily: false,
+        family: {
+            familyId: "",
+            familyName: ""
+        }
     };
 
     user.profile = profile;
