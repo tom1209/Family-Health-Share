@@ -41,38 +41,61 @@ Template.noFamily.events({
             confirmPassword: t.find('#confirmPassword').value
         };
 
+        var errors = validateNewFamily(family);
+        if (errors.familyID || errors.familyName || errors.familyPassword ||errors.confirmPassword ||errors.passwordMismatch)
+            return Session.set('familySubmitErrors', errors);
+
+
         Meteor.call('familyInsert', family, function(error,result){
             // if the familyID entered already exists
-            //if (result.familyExists)
-            //    alert('This familyID is taken');
-        });
+            if (error) {
+                // display the error to the user
+                throwError(error.reason);
+            }
+            else
+            {
+                if (result.familyExists)
+                {
+                    alert('This familyID is taken');
+                }
+                else
+                {
+                    //Now we update the user profile to set the family in their profile
+                    Meteor.users.update({
+                            _id: Meteor.userId()
+                        },
+                        {
+                            $set: {
+                                'profile.hasFamily' : true,
+                                'profile.family' : {
+                                    'familyName' : family.familyName,
+                                    'familyId' : family.familyID
+                                }
+                            }
+                        });
 
-        //Now we update the user profile to set the family in their profile
-        Meteor.users.update({
-            _id: Meteor.userId()
-        }, {
-            $set: {
-                'profile.hasFamily' : true,
-                'profile.family' : {
-                    'familyName' : family.familyName,
-                    'familyId' : family.familyID
+                    //Reload the family page after family has been set, which will show family info instead of selecting a family info
+                    location.reload();
                 }
             }
         });
-        //Reload the family page after family has been set, which will show family info instead of selecting a family info
-        location.reload();
+
     },
 
 
     //////////This is for joining a family that already exists in the database//////////
     'click #joinFamily' : function(e,t) {
-        e.preventDefault();
 
         //Get form input
         var family = {
             familyID : t.find('#familyID').value,
             familyPassword: t.find('#familyPassword').value
         };
+        console.log(family.familyID);
+
+        Meter.call('familyJoin', family, function(error,result){
+            //If errors will display here
+        });
     },
 
     //On the create family click
@@ -81,7 +104,7 @@ Template.noFamily.events({
         Session.set('newFamily', true);
     },
     //On the Join Family click
-    'click #joinFamily': function(e){
+    'click #joinFamily': function(t){
         Session.set('newFamily', false);
     }
 

@@ -14,6 +14,10 @@ Family Health Share
 -Everything else loads in alphabetical order
 -Using meteor methods to allow users to securely update information on the server
 
+***For error checking***
+For the error checking I followed the tutorial in the book Discover Meteor by Tom Coleman and Sasha Greif
+I based my own error checking and display off this
+
 **NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take them back off
 
 TODO (ShortTerm)
@@ -43,6 +47,8 @@ DONE
 
 
 **Where I got description for health information**
+**Eventually this information will all come from the same standard database**
+
 Alzheimer's Disease - http://www.alzfdn.org/AboutAlzheimers/definition.html
 Dementia - http://www.alzheimers.org.uk/site/scripts/documents.php?categoryID=200360
 Arthritis - http://www.cdc.gov/arthritis/basics/general.htm

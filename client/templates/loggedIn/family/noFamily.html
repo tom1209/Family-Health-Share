@@ -2,7 +2,7 @@
     <div class="container">
         <p class="">It doesn't seem like you've registered with a family yet. Feel free to create a new Family Account, or join an existing one!</p>
         <button type="submit" data-toggle="modal" data-target="#addFamilyForm" id="createFamily" class="btn btn-primary">Create New Family</button>
-        <button type="submit" data-toggle="modal" data-target="#addFamilyForm" id="joinFamily" class="btn btn-default">Join Existing Family</button>
+        <button type="submit" data-toggle="modal" data-target="#joinFamilyForm" id="joinFamily" class="btn btn-default">Join Existing Family</button>
     </div>
 
     <!-- Add family modal form-->
@@ -14,11 +14,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">
-                        {{#if newFamily}}
-                            {{newTitle}}
-                        {{else}}
-                            {{joinTitle}}
-                        {{/if}}
+                        {{newTitle}}
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -28,25 +24,24 @@
                             <input type="text" class="form-control" id="familyID" name="familyID">
                             <span class="help-block">{{errorMessage 'familyID'}}</span>
                         </div>
-                        {{#if newFamily}}
-                            <div class="form-group {{errorClass 'familyName'}}">
-                                <label for="familyName">Family Name</label>
-                                <input type="text" class="form-control" id="familyName" name="familyName">
-                                <span class="help-block">{{errorMessage 'familyName'}}</span>
-                            </div>
-                        {{/if}}
+
+                        <div class="form-group {{errorClass 'familyName'}}">
+                            <label for="familyName">Family Name</label>
+                            <input type="text" class="form-control" id="familyName" name="familyName">
+                            <span class="help-block">{{errorMessage 'familyName'}}</span>
+                        </div>
+
                         <div class="form-group {{errorClass 'familyPassword'}}">
                             <label for="familyPassword">Family Password</label>
                             <input type="password" class="form-control" id="familyPassword" name="familyPassword">
                             <span class="help-block">{{errorMessage 'familyPassword'}}</span>
                         </div>
-                        {{#if newFamily}}
-                            <div class="form-group {{errorClass 'confirmPassword'}}">
-                                <label for="familyPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
-                                <span class="help-block">{{errorMessage 'confirmPassword'}}</span>
-                            </div>
-                        {{/if}}
+
+                        <div class="form-group {{errorClass 'confirmPassword'}}">
+                            <label for="familyPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                            <span class="help-block">{{errorMessage 'confirmPassword'}}</span>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -57,7 +52,45 @@
 
         </div>
     </div>
-
     <!-- End -->
+
+    <!-- Join family form -->
+    <div id="joinFamilyForm" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        {{joinTitle}}
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                    <form role="form" name="userForm">
+                        <div class="form-group {{errorClass 'familyName'}}">
+                            <label for="familyID">FamilyID</label>
+                            <input type="text" class="form-control" id="familyID" name="familyID">
+                            <span class="help-block">{{errorMessage 'familyID'}}</span>
+                        </div>
+
+                        <div class="form-group {{errorClass 'familyPassword'}}">
+                            <label for="familyPassword">Family Password</label>
+                            <input type="password" class="form-control" id="familyPassword" name="familyPassword">
+                            <span class="help-block">{{errorMessage 'familyPassword'}}</span>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="submit" id="joinFamily" value="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </template>
