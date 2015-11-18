@@ -49,7 +49,6 @@ Template.noFamily.events({
         Meteor.call('familyInsert', family, function(error,result){
             // if the familyID entered already exists
             if (error) {
-                // display the error to the user
                 throwError(error.reason);
             }
             else
@@ -85,6 +84,7 @@ Template.noFamily.events({
 
     //////////This is for joining a family that already exists in the database//////////
     'click #joinFamily' : function(e,t) {
+        e.preventDefault();
 
         //Get form input
         var family = {
@@ -93,19 +93,10 @@ Template.noFamily.events({
         };
         console.log(family.familyID);
 
-        Meter.call('familyJoin', family, function(error,result){
-            //If errors will display here
+        Meteor.call('familyJoin', family, function(error,result){
+
         });
     },
 
-    //On the create family click
-    'click #createFamily': function (e) {
-        //Setting this so the extra input for confirm password will be displayed
-        Session.set('newFamily', true);
-    },
-    //On the Join Family click
-    'click #joinFamily': function(t){
-        Session.set('newFamily', false);
-    }
 
 });

@@ -18,7 +18,7 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form" name="userForm">
+                    <form role="form" name="addFamilyForm">
                         <div class="form-group {{errorClass 'familyID'}}">
                             <label for="familyID">FamilyID</label>
                             <input type="text" class="form-control" id="familyID" name="familyID">
@@ -31,16 +31,18 @@
                             <span class="help-block">{{errorMessage 'familyName'}}</span>
                         </div>
 
-                        <div class="form-group {{errorClass 'familyPassword'}}">
+                        <div class="form-group {{errorClass 'familyPassword'}}{{errorClass 'passwordMismatch'}}">
                             <label for="familyPassword">Family Password</label>
                             <input type="password" class="form-control" id="familyPassword" name="familyPassword">
                             <span class="help-block">{{errorMessage 'familyPassword'}}</span>
+                            <span class="help-block">{{errorMessage 'passwordMismatch'}}</span>
                         </div>
 
-                        <div class="form-group {{errorClass 'confirmPassword'}}">
+                        <div class="form-group {{errorClass 'confirmPassword'}}{{errorClass 'passwordMismatch'}}">
                             <label for="familyPassword">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                             <span class="help-block">{{errorMessage 'confirmPassword'}}</span>
+                            <span class="help-block">{{errorMessage 'passwordMismatch'}}</span>
                         </div>
                     </form>
                 </div>
@@ -68,8 +70,8 @@
                 </div>
 
                 <div class="modal-body">
-                    <form role="form" name="userForm">
-                        <div class="form-group {{errorClass 'familyName'}}">
+                    <form role="form" name="joinFamilyForm">
+                        <div class="form-group {{errorClass 'familyID'}}">
                             <label for="familyID">FamilyID</label>
                             <input type="text" class="form-control" id="familyID" name="familyID">
                             <span class="help-block">{{errorMessage 'familyID'}}</span>
