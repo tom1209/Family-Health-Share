@@ -12,10 +12,17 @@
     users.insert({
         email: "thomas.white5@mohawkcollege.ca",
         password: "password123",
-        firstName: "Thomas",
-        middleName: "Peter",
-        lastName: "White",
-        gender: "Male",
-        DOB: "05/05/1986"
+        profile: {
+            firstName: "Thomas",
+            middleName: "Peter",
+            lastName: "White",
+            gender: "Male",
+            DOB: "05/05/1986",
+            hasFamily: true,
+            family : {
+                familyId: "white1",
+                familyName: "White"
+            }
+        }
     });
 }*/

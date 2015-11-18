@@ -41,26 +41,44 @@ Template.noFamily.events({
             confirmPassword: t.find('#confirmPassword').value
         };
 
+        var errors = validateNewFamily(family);
+        if (errors.familyID || errors.familyName || errors.familyPassword ||errors.confirmPassword ||errors.passwordMismatch)
+            return Session.set('familySubmitErrors', errors);
+
+
         Meteor.call('familyInsert', family, function(error,result){
             // if the familyID entered already exists
-            //if (result.familyExists)
-            //    alert('This familyID is taken');
-        });
+            if (error) {
+                throwError(error.reason);
+            }
+            else
+            {
+                if (result.familyExists)
+                {
+                    alert('This familyID is taken');
+                }
+                else
+                {
+                    //Now we update the user profile to set the family in their profile
+                    Meteor.users.update({
+                            _id: Meteor.userId()
+                        },
+                        {
+                            $set: {
+                                'profile.hasFamily' : true,
+                                'profile.family' : {
+                                    'familyName' : family.familyName,
+                                    'familyId' : family.familyID
+                                }
+                            }
+                        });
 
-        //Now we update the user profile to set the family in their profile
-        Meteor.users.update({
-            _id: Meteor.userId()
-        }, {
-            $set: {
-                'profile.hasFamily' : true,
-                'profile.family' : {
-                    'familyName' : family.familyName,
-                    'familyId' : family.familyID
+                    //Reload the family page after family has been set, which will show family info instead of selecting a family info
+                    location.reload();
                 }
             }
         });
-        //Reload the family page after family has been set, which will show family info instead of selecting a family info
-        location.reload();
+
     },
 
 
@@ -73,16 +91,12 @@ Template.noFamily.events({
             familyID : t.find('#familyID').value,
             familyPassword: t.find('#familyPassword').value
         };
+        console.log(family.familyID);
+
+        Meteor.call('familyJoin', family, function(error,result){
+
+        });
     },
 
-    //On the create family click
-    'click #createFamily': function (e) {
-        //Setting this so the extra input for confirm password will be displayed
-        Session.set('newFamily', true);
-    },
-    //On the Join Family click
-    'click #joinFamily': function(e){
-        Session.set('newFamily', false);
-    }
 
 });
