@@ -14,8 +14,18 @@ Template.familyMemberList.helpers({
 
         //Use that family ID to query the families collection and return the names of the individuals associated with that family
         var familyId = user.profile.family.familyId;
-        console.log(familyId);
 
         return Families.find({ familyID : familyId}, {sort:{ _id : -1 }});
+    },
+
+    //To get the specific name of family members in a family
+    name: function() {
+        //This is the current familyID, familyMembers attribute
+        var result = _.values(this.familyMembers);
+
+        //will append the current family member.text to end of result
+        result.push(this.text);
+
+        return result;
     }
 });

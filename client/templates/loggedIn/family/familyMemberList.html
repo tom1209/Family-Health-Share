@@ -9,7 +9,12 @@
             </thead>
             <tbody>
             {{#each familyMembers}}
-                {{> memberName}}
+                {{#each name}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{> relation}}</td>
+                    </tr>
+                {{/each}}
             {{/each}}
             </tbody>
         </table>
