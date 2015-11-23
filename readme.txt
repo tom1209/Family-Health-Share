@@ -16,7 +16,7 @@ Family Health Share
 
 ***For error checking***
 For the error checking I followed the tutorial in the book Discover Meteor by Tom Coleman and Sasha Greif
-I based my own error checking and display off this
+I based my own error checking and display of errors off of this
 
 **NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take them back off
 

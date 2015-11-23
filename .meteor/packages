@@ -28,6 +28,6 @@ event-hooks
 lookback:dropdowns
 mizzao:autocomplete
 accounts-base
+kookoskar:bootstrap-select
 insecure
 autopublish
-kookoskar:bootstrap-select

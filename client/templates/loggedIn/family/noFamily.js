@@ -10,12 +10,6 @@ Template.noFamily.onCreated(function() {
 
 //This helper is for the title of the form, which will either be create Family, or Join Family
 Template.noFamily.helpers({
-    'newFamily' : function(){
-        return Session.get('newFamily');
-    },
-    newTitle: 'Create Family',
-    joinTitle: 'Join a Family',
-
 
     //Error checking
     errorMessage: function(field) {
@@ -27,7 +21,6 @@ Template.noFamily.helpers({
 });
 
 Template.noFamily.events({
-
 
     ////////////Insert family information into the database, This is for creating from scratch//////////
     'click #addFamily' : function(e,t) {
@@ -41,6 +34,7 @@ Template.noFamily.events({
             confirmPassword: t.find('#confirmPassword').value
         };
 
+        //Validate
         var errors = validateNewFamily(family);
         if (errors.familyID || errors.familyName || errors.familyPassword ||errors.confirmPassword ||errors.passwordMismatch)
             return Session.set('familySubmitErrors', errors);
@@ -88,15 +82,55 @@ Template.noFamily.events({
 
         //Get form input
         var family = {
-            familyID : t.find('#familyID').value,
-            familyPassword: t.find('#familyPassword').value
+            familyID : t.find('#familyJoinID').value,
+            familyPassword: t.find('#familyJoinPassword').value,
+            familyName : t.find('#familyJoinName').value
         };
-        console.log(family.familyID);
+        var familyWithSameId = Families.findOne({familyID: family.familyID});
 
-        Meteor.call('familyJoin', family, function(error,result){
+        var user = Meteor.user();
+        var familyMember = {
+            member: {
+                userId: user._id,
+                name: user.profile.firstName + " " + user.profile.lastName,
+                submitted: new Date() }
+            };
 
-        });
-    },
+        var errors = validateNewFamily(family);
 
+        if (errors.familyID || errors.familyPassword || errors.familyName)
+            return Session.set('familySubmitErrors', errors);
+
+
+        if(familyWithSameId)
+        {
+            Families.update(familyWithSameId._id, {$addToSet: {familyMembers:familyMember}}, function(error) {
+                if (error) {
+                    // display the error to the user
+                    throwError(error.reason);
+                } else {
+                    //Now we update the user profile to set the family in their profile
+                    Meteor.users.update({
+                            _id: Meteor.userId()
+                        },
+                        {
+                            $set: {
+                                'profile.hasFamily' : true,
+                                'profile.family' : {
+                                    'familyName' :family.familyName,
+                                    'familyId' : family.familyID
+                                }
+                            }
+                        });
+                    location.reload();
+                }
+            });
+        }
+        else
+        {
+            alert('There is no family with that ID that currently exists');
+        }
+
+    }
 
 });
