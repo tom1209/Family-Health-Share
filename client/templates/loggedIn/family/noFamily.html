@@ -1,8 +1,8 @@
 <template name="noFamily">
     <div class="container">
         <p class="">It doesn't seem like you've registered with a family yet. Feel free to create a new Family Account, or join an existing one!</p>
-        <button type="submit" data-toggle="modal" data-target="#addFamilyForm" id="createFamily" class="btn btn-primary">Create New Family</button>
-        <button type="submit" data-toggle="modal" data-target="#joinFamilyForm" id="joinFamily" class="btn btn-default">Join Existing Family</button>
+        <button  data-toggle="modal" data-target="#addFamilyForm" id="createFamily" class="btn btn-primary">Create New Family</button>
+        <button  data-toggle="modal" data-target="#joinFamilyForm" id="joinAFamily" class="btn btn-default">Join Existing Family</button>
     </div>
 
     <!-- Add family modal form-->
@@ -14,7 +14,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">
-                        {{newTitle}}
+                        Create New Family
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -65,7 +65,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">
-                        {{joinTitle}}
+                        Join a Family
                     </h4>
                 </div>
 
@@ -73,13 +73,19 @@
                     <form role="form" name="joinFamilyForm">
                         <div class="form-group {{errorClass 'familyID'}}">
                             <label for="familyID">FamilyID</label>
-                            <input type="text" class="form-control" id="familyID" name="familyID">
+                            <input type="text" class="form-control" id="familyJoinID" name="familyID">
                             <span class="help-block">{{errorMessage 'familyID'}}</span>
+                        </div>
+
+                        <div class="form-group {{errorClass 'familyName'}}">
+                            <label for="familyName">Family Name</label>
+                            <input type="text" class="form-control" id="familyJoinName" name="familyName">
+                            <span class="help-block">{{errorMessage 'familyName'}}</span>
                         </div>
 
                         <div class="form-group {{errorClass 'familyPassword'}}">
                             <label for="familyPassword">Family Password</label>
-                            <input type="password" class="form-control" id="familyPassword" name="familyPassword">
+                            <input type="password" class="form-control" id="familyJoinPassword" name="familyPassword">
                             <span class="help-block">{{errorMessage 'familyPassword'}}</span>
                         </div>
                     </form>
