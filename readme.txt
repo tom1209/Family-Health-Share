@@ -29,6 +29,10 @@ TODO (ShortTerm)
 -Do not let users add the same health condition
 -Admin functionality
 -Family Health History Form completed
+-Ability to add deceased user
+-Remove family from profile
+-Family needs to dynamically update user info and conditions when users change their information
+-When adding a family, need to do a password and name check on the family password, and family name
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]

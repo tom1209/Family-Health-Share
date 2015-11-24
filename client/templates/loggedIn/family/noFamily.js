@@ -22,7 +22,7 @@ Template.noFamily.helpers({
 
 Template.noFamily.events({
 
-    ////////////Insert family information into the database, This is for creating from scratch//////////
+    ////////////Insert family information into the database, This is for creating family from scratch//////////
     'click #addFamily' : function(e,t) {
         e.preventDefault();
 
@@ -111,6 +111,59 @@ Template.noFamily.events({
         //Checking to see if FamilyID the user is trying to join exists, if so updating both the Family and user collection
         if(familyWithSameId)
         {
+            //Getting the existing family health conditions
+            var familyConditions = familyWithSameId.conditions;
+            //Getting the health conditions from a user profile
+            var userConditions = user.profile.conditions;
+
+
+            //If the user condition already exists in the family condition list, add one to the count
+            //Basically, because we are iterating through object literals, we have to check if that property exists which is the .hasOwnProperty
+            var hasCondition = false;
+            for(var c in userConditions) {
+                if (userConditions.hasOwnProperty(c)) {
+                    for(var r in familyConditions) {
+                        if (familyConditions.hasOwnProperty(r)) {
+                            if (familyConditions[r].name == userConditions[c].name)
+                            {
+                                familyConditions[r].count ++;
+                                hasCondition = true;
+                            }
+                        }
+                    }
+                    if(!hasCondition)
+                    {
+                        familyConditions.push({
+                            name: userConditions[c].name,
+                            count: 1
+                        })
+                    }
+                    hasCondition = false;
+                }
+            }
+
+            //Just testing to make sure I have the correct number of conditions after the join
+            /*var result = 0;
+            for(var r in familyConditions) {
+                if (familyConditions.hasOwnProperty(r)) {
+                    // or Object.prototype.hasOwnProperty.call(obj, prop)
+                    result++;
+                }
+            }
+            alert(result);*/
+
+            //Update family with new list of conditions
+            Families.update(familyWithSameId._id, {$set: {conditions: familyConditions}}, function(error){
+                if(error){
+                    throwError(error.reason);
+                }
+                else{
+                    console.log("Family conditions updated");
+                }
+            });
+
+
+            //Updating family document in Families collection with user info
             Families.update(familyWithSameId._id, {$addToSet: {familyMembers:familyMember}}, function(error) {
                 if (error) {
                     // display the error to the user
