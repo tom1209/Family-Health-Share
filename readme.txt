@@ -24,26 +24,18 @@ TODO (ShortTerm)
 -Check momentum package for good animations
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
 -Allow user ot add notes to health conditions
--Add validation to creating and joining Family
--Actually, just in general I should probably add validation to all my inputs
 -Salt and hash family password
--Join a family
 -Add all users health conditions to that family
 -Do not let users add the same health condition
+-Admin functionality
+-Family Health History Form completed
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
+-Bug on Cancel button in edit profile
+-Extra empty user on family page
 
--Once user Accounts is fully created I can add the family aspect. 
 
-DONE
--Home Page, About Page, Login Page, Register Page, Family Page 
--Basic Setup
--User Login, profile
--Health Conditions collection, Families collection
--User can add and delete health conditions
-
--Created Develop branch
 
 
 **Where I got description for health information**

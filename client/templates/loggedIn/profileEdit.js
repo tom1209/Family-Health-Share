@@ -33,5 +33,11 @@ Template.profileEdit.events({
         //Redirect back to profile page
         Router.go('/Profile');
 
+    },
+
+    '#click cancelEdit' : function(e){
+        e.preventDefault();
+        console.log('hm');
+        Router.go('/Profile')
     }
 });
