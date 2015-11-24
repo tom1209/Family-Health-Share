@@ -1,6 +1,6 @@
 <template name="familyConditionsList">
     <div class="table-responsive">
-        <table class="table">
+        <table id="familyConditions" class="table">
             <thead>
             <tr>
                 <th>Condition</th>
@@ -8,7 +8,12 @@
             </tr>
             </thead>
             <tbody>
-
+            {{#each familyCondition}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.count}}</td>
+                    </tr>
+            {{/each}}
             </tbody>
         </table>
     </div>

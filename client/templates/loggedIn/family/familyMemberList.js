@@ -10,12 +10,10 @@ Template.familyMemberList.helpers({
         //Get the familyID of the logged in user
         var userId = Meteor.userId();
         var user = Meteor.users.findOne({_id: userId});
-        //return Meteor.users.find({_id: userId}, {fields: {username: 1, profile: 1}});
 
-        //Use that family ID to query the families collection and return the names of the individuals associated with that family
         var familyId = user.profile.family.familyId;
 
-        return Families.find({ familyID : familyId}, {sort:{ _id : -1 }});
+        return Families.find({'familyID': familyId});
     },
 
     //To get the specific name of family members in a family
@@ -25,6 +23,7 @@ Template.familyMemberList.helpers({
 
         //will append the current family member.text to end of result
         result.push(this.text);
+
 
         return result;
     }
