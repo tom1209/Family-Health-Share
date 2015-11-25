@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Name:</label>
-                    <input type="text" class="form-control" id="name" value="">
+                    <input type="text" class="form-control" id="name" value="{{currentUser.profile.firstName}} {{currentUser.profile.lastName}}">
                 </div>
             </div>
             <div class="col-md-6">
@@ -20,7 +20,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Date of Birth:</label>
-                    <input type="text" class="form-control" id="dob" value="">
+                    <input type="text" class="form-control" id="dob" value="{{currentUser.profile.DOB}}">
                 </div>
             </div>
             <div class="col-md-6">
@@ -44,7 +44,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Email:</label>
-                    <input type="text" class="form-control" id="email" value="">
+                    <input type="text" class="form-control" id="email" value="{{currentUser.emails.[0].address}}">
                 </div>
             </div>
         </div>

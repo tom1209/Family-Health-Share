@@ -1,5 +1,6 @@
 <template name="familyMemberList">
     <div class="table">
+        <h3>Family Members</h3>
         <table id="familyMemberTable" class="table">
             <thead>
             <tr>
@@ -9,12 +10,10 @@
             </thead>
             <tbody>
             {{#each familyMembers}}
-                {{#each name}}
-                    <tr>
-                        <td>{{this.name}}</td>
-                        <td>{{> relation}}</td>
-                    </tr>
-                {{/each}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{> relation}}</td>
+                </tr>
             {{/each}}
             </tbody>
         </table>

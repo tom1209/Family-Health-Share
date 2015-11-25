@@ -142,15 +142,6 @@ Template.noFamily.events({
                 }
             }
 
-            //Just testing to make sure I have the correct number of conditions after the join
-            /*var result = 0;
-            for(var r in familyConditions) {
-                if (familyConditions.hasOwnProperty(r)) {
-                    // or Object.prototype.hasOwnProperty.call(obj, prop)
-                    result++;
-                }
-            }
-            alert(result);*/
 
             //Update family with new list of conditions
             Families.update(familyWithSameId._id, {$set: {conditions: familyConditions}}, function(error){
