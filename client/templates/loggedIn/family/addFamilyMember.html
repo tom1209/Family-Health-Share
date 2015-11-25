@@ -1,0 +1,58 @@
+<template name="addFamilyMember">
+    <div class="container">
+        <br/>
+        <p>Here you are able to see a list of current family members, and a summary of the health history for your family, thus far.</p>
+        <p>Use the button below to add a family member that may be deceased, or unable to create their own account.</p>
+        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addFamilyMemberModal">Add Family Member</button>
+
+        <!-- Modal -->
+        <div id="addFamilyMemberModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add a New Family Member</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form role="form" name="userForm">
+                            <div class="form-group">
+                                <label for="fName">First Name:</label>
+                                <input type="text" class="form-control" id="fName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="lName">Last Name:</label>
+                                <input type="text" class="form-control" id="lName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="mName">Middle Name:</label>
+                                <input type="text" class="form-control" id="mName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <input type="radio" name="gender" id="m" value="Male"><label for="m">Male</label>
+                                <input type="radio" name="gender" id="f" value="Female"> <label for="f">Female</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="DOB">Date of Birth:</label>
+                                <input type="text" class="form-control" id="DOB" placeholder="DD/MM/YYYY">
+                            </div>
+                            <div class="form-group">
+                                <label for="DOB">Date of Death(If Applicable):</label>
+                                <input type="text" class="form-control" id="DOD" placeholder="DD/MM/YYYY">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" id="addNewFamilyMember" class="btn btn-primary">Add Family Member</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

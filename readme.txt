@@ -20,12 +20,11 @@ I based my own error checking and display of errors off of this
 
 **NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take them back off
 
-TODO (ShortTerm)
+TODO
 -Check momentum package for good animations
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
--Allow user ot add notes to health conditions
+-Allow user to add notes to health conditions
 -Salt and hash family password
--Add all users health conditions to that family
 -Do not let users add the same health condition
 -Admin functionality
 -Family Health History Form completed
@@ -33,11 +32,15 @@ TODO (ShortTerm)
 -Remove family from profile
 -Family needs to dynamically update user info and conditions when users change their information
 -When adding a family, need to do a password and name check on the family password, and family name
+-Sorting family member page, also saving the user's relation values for their family members
+-Possibly displaying info on different family members health conditions notes, on family page
+-DOB validation
+-Walkthrough on the about page
+-Removing health conditions from user profile actually remove all the health conditions
 
 BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
 -Bug on Cancel button in edit profile
--Extra empty user on family page
 
 
 

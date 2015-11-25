@@ -13,18 +13,10 @@ Template.familyMemberList.helpers({
 
         var familyId = user.profile.family.familyId;
 
-        return Families.find({'familyID': familyId});
-    },
+        var family = Families.findOne({'familyID': familyId});
+        var familyMembers = family.familyMembers;
 
-    //To get the specific name of family members in a family
-    name: function() {
-        //This is the current familyID, familyMembers attribute
-        var result = _.values(this.familyMembers);
-
-        //will append the current family member.text to end of result
-        result.push(this.text);
-
-
-        return result;
+        //return Families.find({'familyID': familyId});
+        return familyMembers;
     }
 });

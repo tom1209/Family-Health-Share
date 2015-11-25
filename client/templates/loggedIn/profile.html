@@ -1,7 +1,7 @@
 <template name="profile">
     <div class="container">
         <div id="profileHeader">
-            <h1>Personal Information</h1>
+            <h3>Personal Information</h3>
         </div>
 
         <div id="personalInfo">
@@ -11,28 +11,84 @@
             <p>Middle Name: {{currentUser.profile.middleName}}</p>
             <p>Gender: {{currentUser.profile.gender}}</p>
             <p>Date of Birth: {{currentUser.profile.DOB}}</p>
-            <p>Health Conditions:
-                {{#each currentUser.profile.conditions}}
-                    <div><strong>{{this.name}}</strong>
-                        <input name="{{this.docId}}" type="image" width="11px" height="11px" src="img/redX.png" alt="deleteCondition" id="deleteCondition"/>
-                    </div>
-                {{/each}}
-            </p>
+
+            <div id="editProfile">
+                <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
+            </div>
+        </div>
+
+        <div id="familyInfo">
+            <br/>
+            <h3>Family Info</h3>
             <p>Family: <strong>{{currentUser.profile.family.familyName}}</strong></p>
             <p>FamilyID: <strong>{{currentUser.profile.family.familyId}}</strong></p>
+        </div>
+
+        <div id="healthConditionInfo">
+            <br/>
+            <h3>Health Conditions</h3>
+            <table id="familyConditions" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Notes</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each currentUser.profile.conditions}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.notes}}</td>
+                        <td><input name="{{this.docId}}" type="image" width="11px" height="11px" src="img/redX.png" alt="deleteCondition" id="deleteCondition"/></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+
+            <div>
+                <button class="btn btn-success" data-toggle="modal" data-target="#healthConditionModal">
+                    Add Health Condition
+                </button>
+            </div>
 
         </div>
 
-        <div id="editProfile" class="col-md-1">
-            <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
+        <div id="healthConditionModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Select a Health Condition</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form role="form" name="addConditionForm">
+                            <div class="form-group {{errorClass 'healthCondition'}}">
+                                <div id="healthCondition" class="well well-skinny bigger-labels data-labels fill-flex scroll-vertical">
+                                    {{> inputAutocomplete settings=settings id="addCondition" placeholder="Select Health Condition" name="addCondition"}}
+                                </div>
+                                <span class="help-block">{{errorMessage 'healthCondition'}}</span>
+                            </div>
+
+                            <div class="form-group {{errorClass 'conditionNotes'}}">
+                                <label for="comment">Comment:</label>
+                                <textarea class="form-control" rows="5" id="notes"></textarea>
+                                <span class="help-block">{{errorMessage 'conditionNotes'}}</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" id="addHealthCondition" value="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="col-md-2">
-            <button id="addHealthCondition" class="btn btn-success">Add Health Condition</button>
-        </div>
-        <div id ="showHealthConditionText" class="col-md-4">
-            {{#if showHealthConditionText}}
-                {{> addHealthConditions}}
-            {{/if}}
-        </div>
+
     </div>
 </template>
