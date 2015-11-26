@@ -43,8 +43,8 @@ Template.profile.events({
     //Display text area to add condition
     //If plus button is selected, verify that it is a valid selection, and health condition to user profile
     'click #addHealthCondition': function(e, t){
-        //Get the value from the user input
 
+    //Get the value from the user input
         var healthCondition = t.find('#addCondition').value;
         var notes = t.find('#notes').value;
 

@@ -12,7 +12,7 @@ Family Health Share
 -Files in the lib dir load first
 -Files named main load last
 -Everything else loads in alphabetical order
--Using meteor methods to allow users to securely update information on the server
+-Using meteor methods to allow users to securely update information on the server, specifically good for working with collections
 
 ***For error checking***
 For the error checking I followed the tutorial in the book Discover Meteor by Tom Coleman and Sasha Greif
@@ -23,7 +23,6 @@ I based my own error checking and display of errors off of this
 TODO
 -Check momentum package for good animations
 -Do CSS, add health conditions slide in and out instead of appearing and disappearing
--Allow user to add notes to health conditions
 -Salt and hash family password
 -Do not let users add the same health condition
 -Admin functionality
@@ -34,13 +33,15 @@ TODO
 -When adding a family, need to do a password and name check on the family password, and family name
 -Sorting family member page, also saving the user's relation values for their family members
 -Possibly displaying info on different family members health conditions notes, on family page
--DOB validation
--Walkthrough on the about page
+-DOB change to date picker
+-Walkthrough on the About page
 -Removing health conditions from user profile actually remove all the health conditions
-
-BUGS
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
 -Bug on Cancel button in edit profile
+-When adding a new health condition, the modal only closes some of the time, but other times it stays open
+-When clearing textarea in the family 'add new user' section after the first use of adding a new health condition, the text area will act like it is hold
+a null value
+-Selectbox default value needs to reflect user input
 
 
 
