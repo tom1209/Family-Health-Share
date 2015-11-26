@@ -3,6 +3,16 @@
  * Will be used when a new user wants to edit profile information
  */
 
+//When the template is rendered
+Template.profileEdit.rendered = function(){
+    //This is for the select picker
+    $('.selectpicker').selectpicker({
+        style: 'btn-default',
+        size: 5
+    });
+
+};
+
 Template.profileEdit.events({
 
     'submit form' : function(e) {
@@ -19,7 +29,7 @@ Template.profileEdit.events({
             lastName: e.target.lName.value,
             middleName: e.target.mName.value,
             DOB: e.target.DOB.value,
-            gender: e.target.gender.value
+            gender: e.target.selectGender.value
         };
 
         //Update
