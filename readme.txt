@@ -26,8 +26,6 @@ TODO
 -Salt and hash family password
 -Do not let users add the same health condition
 -Admin functionality
--Family Health History Form completed
--Ability to add deceased user
 -Remove family from profile
 -Family needs to dynamically update user info and conditions when users change their information
 -When adding a family, need to do a password and name check on the family password, and family name
@@ -42,7 +40,7 @@ TODO
 -When clearing textarea in the family 'add new user' section after the first use of adding a new health condition, the text area will act like it is hold
 a null value
 -Selectbox default value needs to reflect user input
-
+-Family Health History Page, save locally when user fills out form, for a certain amount of time
 
 
 

@@ -2,28 +2,38 @@
     <h2>Health History</h2>
 
     <h4>Personal Health Conditions</h4>
-    <table id="personalHealthConditions" class="table table-hover">
+    <table id="userConditions" class="table table-hover">
         <thead>
         <tr>
-            <th>Health Condition</th>
+            <th>Condition</th>
             <th>Notes</th>
         </tr>
         </thead>
         <tbody>
-
+        {{#each currentUser.profile.conditions}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.notes}}</td>
+            </tr>
+        {{/each}}
         </tbody>
     </table>
 
     <h4>Family Health Conditions</h4>
-    <table id="familyHealthConditions" class="table table-hover">
+    <table id="familyConditions" class="table table-hover">
         <thead>
         <tr>
-            <th>Health Condition</th>
-            <th>Occurances</th>
+            <th>Condition</th>
+            <th>Number of Occurrences</th>
         </tr>
         </thead>
         <tbody>
-
+        {{#each familyCondition}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.count}}</td>
+            </tr>
+        {{/each}}
         </tbody>
     </table>
 </template>
