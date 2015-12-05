@@ -48,8 +48,6 @@ Template.profile.events({
         var healthCondition = t.find('#addCondition').value;
         var notes = t.find('#notes').value;
 
-
-
         //To hold errors if any
         var errors = {};
 
@@ -68,14 +66,17 @@ Template.profile.events({
         //Insert into the user profile
         var user = Meteor.userId();
         Meteor.users.update(user, {$push: {"profile.conditions": {$each: [{'name': healthCondition, 'notes': notes}]}}});
-
+        //Close modal, reset form values
+        $('#healthConditionModal').modal('hide');
+        $('#addCondition').val('');
+        $('#notes').val('');
     },
 
     //Delete a condition
     'click #deleteCondition': function(e){
         var user = Meteor.userId();
         var condition = '';
-        Meteor.users.update(user, {$pull: {'profile.conditions': {docId: this.docId}}});
+        Meteor.users.update(user, {$pull: {'profile.conditions': {'name': this.name}}});
     },
 
 });
