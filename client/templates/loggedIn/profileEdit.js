@@ -11,7 +11,25 @@ Template.profileEdit.rendered = function(){
         size: 5
     });
 
+    $('#DOB').datepicker();
+
 };
+
+
+Template.profileEdit.onCreated(function() {
+    Session.set('profileEditSubmitErrors', {});
+});
+
+
+Template.profileEdit.helpers({
+    //Error checking
+    errorMessage: function(field) {
+        return Session.get('profileEditSubmitErrors')[field];
+    },
+    errorClass: function (field) {
+        return !!Session.get('profileEditSubmitErrors')[field] ? 'has-error' : '';
+    }
+});
 
 Template.profileEdit.events({
 
@@ -32,7 +50,28 @@ Template.profileEdit.events({
             gender: e.target.selectGender.value
         };
 
-        //Update
+        //validating user info
+        var errors = {};
+
+        if(!userInfo.email)
+            errors.email = "Please enter your email address!";
+
+        if(!userInfo.firstName)
+            errors.firstName = "Please enter a first name";
+
+        if(!userInfo.lastName)
+            errors.lastName = "Please enter a last name";
+
+        if(!userInfo.DOB)
+            errors.DOB = "Please select a date of birth";
+
+        //If any errors, display
+        //If any errors, display them
+        if(errors.email || errors.firstName || errors.lastName || errors.DOB)
+            return Session.set('profileEditSubmitErrors', errors);
+
+
+        //Update (Originally did this seperately for testing purpose, but will come back and group these into one update
         Meteor.users.update(user, {$set: {"profile.firstName": userInfo.firstName}});
         Meteor.users.update(user, {$set: {"profile.lastName": userInfo.lastName}});
         Meteor.users.update(user, {$set: {"profile.middleName": userInfo.middleName}});

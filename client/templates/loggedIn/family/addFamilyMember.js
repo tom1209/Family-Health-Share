@@ -15,6 +15,9 @@ Template.addFamilyMember.rendered = function(){
         size: 5
     });
 
+    $('#DOB').datepicker();
+    $('#DOD').datepicker();
+
 };
 
 

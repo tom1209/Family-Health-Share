@@ -15,7 +15,8 @@ Accounts.onCreateUser(function(options, user){
         family: {
             familyId: "",
             familyName: ""
-        }
+        },
+        returning: false
     };
 
     user.profile = profile;

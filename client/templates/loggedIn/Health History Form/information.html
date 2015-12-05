@@ -5,13 +5,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Name:</label>
-                    <input type="text" class="form-control" id="name" value="{{currentUser.profile.firstName}} {{currentUser.profile.lastName}}">
+                    <input type="text" class="form-control" id="name" value="{{currentUser.profile.firstName}} {{currentUser.profile.lastName}}" readonly>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Date:</label>
-                    <input type="text" class="form-control" id="date" value="">
+                    <input type="text" class="form-control" id="date" value="{{date}}" readonly>
                 </div>
             </div>
         </div>
@@ -20,16 +20,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Date of Birth:</label>
-                    <input type="text" class="form-control" id="dob" value="{{currentUser.profile.DOB}}">
+                    <input type="text" class="form-control" id="dob" value="{{currentUser.profile.DOB}}" readonly>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="Name">Gender:</label><br>
-                    <select id ="selectGender" class="selectpicker">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
+                    <label for="Name">Gender:</label>
+                    <input type="text" class="form-control" id="gender" value="{{currentUser.profile.gender}}" readonly>
                 </div>
             </div>
         </div>
@@ -44,7 +41,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name">Email:</label>
-                    <input type="text" class="form-control" id="email" value="{{currentUser.emails.[0].address}}">
+                    <input type="text" class="form-control" id="email" value="{{currentUser.emails.[0].address}}" readonly>
                 </div>
             </div>
         </div>

@@ -13,3 +13,11 @@ Template.information.rendered = function(){
     });
 
 };
+
+Template.information.helpers ({
+    //Get the current date
+    'date': function(e,t){
+        currentDate = new Date();
+        return currentDate;
+    }
+});

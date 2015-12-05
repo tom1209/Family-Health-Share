@@ -1,4 +1,9 @@
 <template name="healthHistoryForm">
-    {{> information}}
-    {{> healthHistory}}
+    <button type="submit" id="savepdf" class="btn btn-primary">Save as PDF</button>
+    <button type="submit" id="print" class="btn btn-info">Print</button>
+    <br />
+    <div id="info">
+        {{> information}}
+        {{> healthHistory}}
+    </div>
 </template>

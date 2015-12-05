@@ -1,7 +1,7 @@
 <template name="familyConditionsList">
     <div class="table-responsive">
         <h3>Family Health Conditions</h3>
-        <table id="familyConditions" class="table table-hover">
+        <table id="familyConditionsTable" class="table table-hover">
             <thead>
             <tr>
                 <th>Condition</th>
@@ -10,9 +10,9 @@
             </thead>
             <tbody>
             {{#each familyCondition}}
-                <tr>
+                    <tr id="row">
                     <td>{{this.name}}</td>
-                    <td>{{this.count}}</td>
+                    <td id="count">{{this.count}}</td>
                 </tr>
             {{/each}}
             </tbody>
