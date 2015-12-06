@@ -67,8 +67,7 @@ Template.noFamily.events({
                             }
                         });
 
-                    //Reload the family page after family has been set, which will show family info instead of selecting a family info
-                    location.reload();
+                    Router.go('/Family');
                 }
             }
         });
@@ -155,7 +154,7 @@ Template.noFamily.events({
 
 
             //Updating family document in Families collection with user info
-            Families.update(familyWithSameId._id, {$addToSet: {familyMembers:familyMember}}, function(error) {
+            Families.update(familyWithSameId._id, {$push: {familyMembers:familyMember}}, function(error) {
                 if (error) {
                     // display the error to the user
                     throwError(error.reason);
@@ -173,6 +172,7 @@ Template.noFamily.events({
                                 }
                             }
                         });
+
                     location.reload();
                 }
             });

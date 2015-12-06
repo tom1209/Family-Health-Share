@@ -104,7 +104,7 @@ Template.addFamilyMember.events({
        var familyConditions = currentFamilyID.conditions;
 
        //Reusing this from the join user functionality, which can be found in noFamily.js
-       var hasCondition = false;
+       /*var hasCondition = false;
        for(var c in conditions) {
            if (conditions.hasOwnProperty(c)) {
                for(var r in familyConditions) {
@@ -125,7 +125,7 @@ Template.addFamilyMember.events({
                }
                hasCondition = false;
            }
-       }
+       }*/
 
        //Update family information, first conditions, then inactiveMember
        Families.update(currentFamilyID._id, {$set: {conditions: familyConditions}}, function(error){
