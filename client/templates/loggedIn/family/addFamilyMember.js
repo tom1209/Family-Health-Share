@@ -91,10 +91,12 @@ Template.addFamilyMember.events({
        var name = $('#addedCondition').text();
        var notes = $('#notes').text();
 
-       var conditions = {
-           name: name,
-           notes: notes
-       }
+       var conditions = [
+           {
+               name: name,
+               notes: notes
+           }
+       ]
 
 
        //Add the user to the family collection. They will be added to a new field, called 'inActiveMembers' in the collection
@@ -108,24 +110,26 @@ Template.addFamilyMember.events({
        var familyConditions = currentFamilyID.conditions;
 
        //Reusing this from the join user functionality, which can be found in noFamily.js
-
-
-       console.log(conditions.name);
-       for(var r in familyConditions) {
-           if (familyConditions.hasOwnProperty(r)) {
-               if (familyConditions[r].name == conditions.name)
-               {
-                   familyConditions[r].count ++;
-                   hasCondition = true;
+       var hasCondition = false;
+       for(var c in conditions) {
+           if (conditions.hasOwnProperty(c)) {
+               for(var r in familyConditions) {
+                   if (familyConditions.hasOwnProperty(r)) {
+                       if (familyConditions[r].name == conditions[c].name)
+                       {
+                           familyConditions[r].count ++;
+                           hasCondition = true;
+                       }
+                   }
                }
                if(!hasCondition)
                {
                    familyConditions.push({
-                       name: conditions.name,
+                       name: conditions[c].name,
                        count: 1
                    })
                }
-               var hasCondition = false;
+               hasCondition = false;
            }
        }
 
@@ -169,7 +173,7 @@ Template.addFamilyMember.events({
            }
            else
            {
-               //location.reload();
+               location.reload();
            }
        });
 

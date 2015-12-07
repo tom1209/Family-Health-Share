@@ -67,7 +67,7 @@ Template.noFamily.events({
                             }
                         });
 
-                    Router.go('/Family');
+                    location.reload();
                 }
             }
         });
