@@ -3,6 +3,7 @@
 
     {{#if isFamilySet}}
         <h3> Welcome to the {{currentUser.profile.family.familyName}} family page!</h3>
+        <br>
         {{> addFamilyMember}}
         <br/>
         {{> userFamily}}
@@ -10,5 +11,6 @@
         <h3>Family Information</h3>
         {{> noFamily}}
     {{/if}}
+
 
 </template>

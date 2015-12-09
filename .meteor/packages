@@ -33,3 +33,6 @@ insecure
 autopublish
 chipcastledotcom:meteor-jspdf
 rajit:bootstrap3-datepicker
+dbernhard:jquery-ui-draggable
+drewproud:jquery-ui-droppable
+mizzao:jquery-ui

@@ -36,11 +36,9 @@ TODO
 -Possibly displaying info on different family members health conditions notes, on family page
 -Walkthrough on the About page
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
--Bug on Cancel button in edit profile
 -When clearing textarea in the family 'add new user' section after the first use of adding a new health condition, the text area will act like it is hold
 a null value
--Selectbox default value needs to reflect user input (Relation collection)
--Family Health History Page, save locally when user fills out form, for a certain amount of time?
+- Forgot password
 
 
 

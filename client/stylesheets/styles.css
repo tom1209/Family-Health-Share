@@ -2,6 +2,8 @@
  * Main stylesheet
  */
 
+
+
 body {
     background: white;
     color: #666666; }
@@ -48,3 +50,39 @@ body {
 #personalInfo div{
     padding-bottom: 5px;
 }
+
+
+
+/*This is for the About page*/
+
+#how{
+    text-align: center;
+}
+
+
+#step1 img{
+    width: 30%;
+    height: 30%;
+}
+
+
+#step2 img{
+    width: 60%;
+    height: 60%;
+}
+
+#pic {
+    text-align: center;
+}
+
+#step3 img{
+    width: 40%;
+    height: 40%;
+}
+
+#step4 img{
+    width: 40%;
+    height: 40%;
+}
+/* End about page */
+
