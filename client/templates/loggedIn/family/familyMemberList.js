@@ -1,6 +1,8 @@
 /**
  * Created by Tom on 2015-11-01.
  * Display the list of family members
+ *
+ * NOTE: Current;y not using the familyMemberList, so it's not complete. I am using the FamilyTree template at the moment, instead of this one
  */
 
 
@@ -10,7 +12,6 @@ Template.familyMemberList.rendered = function(){
     //Try to find a document in the relations collection that contains the currentuserID
     var userId = Meteor.userId();
     var relationDoc = Relations.findOne({'id': userId});
-
 
     //If there is a document that exists, load the values into the select boxes, else insert a new document into the collection
     if(relationDoc != null)
@@ -25,8 +26,6 @@ Template.familyMemberList.rendered = function(){
             var $this = $(this);
             var td = $this.children("td");
             var name = td.eq(0).text();
-            //console.log(nameInCollection);
-            console.log(name);
 
             //for each relation in this document
             for(r in relationInfo)

@@ -1,0 +1,139 @@
+<template name="familyTree">
+<!--
+    <ul id="org" style="display:none">
+        <li>
+            {{currentUser.profile.firstName}} {{currentUser.profile.lastName}}
+            <button type="button" class="btn btn-primary btn-xs" id="info">Info</button>
+            <ul>
+                {{#each familyTree}}
+                    <li>
+                        <p id="name">{{this.name}}</p>
+                        <button type="button" class="btn btn-primary btn-xs" id="info" data-toggle="modal" data-target="#infoModal">Info</button>
+                    </li>
+                {{/each}}
+            </ul>
+        </li>
+    </ul>-->
+
+    <div class="overflow">
+        <div>
+            <ul class="tree">
+                <li>
+                    <div>The Simpsons</div>
+                    <ul>
+                        <li>
+                            <div>Bart Simpson</div>
+                            <ul>
+                                <li>
+                                    <div>Marge Simpson</div>
+                                </li>
+                                <li>
+                                    <div>Marge Simpson</div>
+                                </li>
+                                <li>
+                                    <div>Marge Simpson</div>
+                                    <ul>
+                                        <li>
+                                            <div>Marge Simpson</div>
+                                            <ul>
+                                                <li>
+                                                    <div>Homer Lisa</div>
+                                                </li>
+                                                <li>
+                                                    <div>Maggie Simpson</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div>Abe Simpson</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>Waylen Smithers</div>
+                            <ul>
+                                <li>
+                                    <div>Mr.Burns</div>
+                                </li>
+                                <li>
+                                    <div>Ralph Wiggum</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>Milhouse Versomething or Other</div>
+                            <ul>
+                                <li>
+                                    <div>Nelson Munz</div>
+                                </li>
+                                <li>
+                                    <div>Troy MaCluer</div>
+                                </li>
+                                <li>
+                                    <div>Seymor Skinner</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Name:</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Email:</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Gender:</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Birthday:</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Age:</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Conditions</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="chart" class="orgChart"></div>
+</template>

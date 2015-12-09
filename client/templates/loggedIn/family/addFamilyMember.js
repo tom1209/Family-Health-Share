@@ -88,10 +88,16 @@ Template.addFamilyMember.events({
            return Session.set('addFamilyMemberSubmitErrors', errors);
 
        //Getting the conditions for this family member
-       var conditions = {
-           name: $('#addedCondition'),
-           notes: $('#notes')
-       }
+       var name = $('#addedCondition').text();
+       var notes = $('#notes').text();
+
+       var conditions = [
+           {
+               name: name,
+               notes: notes
+           }
+       ]
+
 
        //Add the user to the family collection. They will be added to a new field, called 'inActiveMembers' in the collection
        var user = Meteor.user();
@@ -127,6 +133,9 @@ Template.addFamilyMember.events({
            }
        }
 
+
+
+
        //Update family information, first conditions, then inactiveMember
        Families.update(currentFamilyID._id, {$set: {conditions: familyConditions}}, function(error){
            if(error){
@@ -149,12 +158,12 @@ Template.addFamilyMember.events({
            }
        });
 
-       var familyMember = {
+       var familyMember = _.extend(userInfo,{
            inactiveMember : true,
            addedBy: user._id,
            name: userInfo.firstName + " " + userInfo.lastName,
-           submitted: new Date()
-       };
+           submitted: new Date(),
+       });
 
        //Updating family document in Families collection with user info
        Families.update(currentFamilyID._id, {$addToSet: {familyMembers:familyMember}}, function(error) {
@@ -162,7 +171,8 @@ Template.addFamilyMember.events({
                // display the error to the user
                throwError(error.reason);
            }
-           else {
+           else
+           {
                location.reload();
            }
        });
@@ -193,17 +203,14 @@ Template.addFamilyMember.events({
             return Session.set('addFamilyMemberSubmitErrors', errors);
 
         //Displaying the conditions in the form once they are added
-        $('#healthConditions').append("<p id='addedCondition'>" + healthCondition + "</p>");
-        $('#healthConditions').append("<p id='notes'>" + notes + "</p>");
-
+        $('#healthConditions').append("<div>");
+        $('#healthConditions').append("<p><strong>Condition:</strong><span id='addedCondition'>" + healthCondition + "</span></p>");
+        $('#healthConditions').append("<p><strong>Notes: </strong><span id='notes'>" + notes + "</span></p>");
+        $('#healthConditions').append("</div>");
 
         //Reset textbox and text area for health condition and notes
-        $('#addCondition').val('');
-        $('#notes').val('');
-
-        //Push to condition variable which will hold the cons for use on the actual form submit above
-
-
+        $('#addCondition').val("");
+        $("#notes").val("");
 
     }
 });

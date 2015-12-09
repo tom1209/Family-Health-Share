@@ -1,5 +1,95 @@
 <template name="about">
     <div class="container">
-        <p>This is the about page</p>
+        <div class="row">
+
+            <div class="col-md-3">
+                <h4>Contact Us</h4>
+                <p>Questions? Send us an email!</p>
+
+                <form role="form" name="questionForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Comments:</label>
+                        <textarea class="form-control" rows="3" id="comments"></textarea>
+                    </div>
+                    <button type="submit" id="askQuestion" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>What is Family Health Share?</h4>
+                    <p> &emsp;&emsp;Welcome to Family Health Share! This application is a social website for you and your family. By using Family Health
+                    Share you and your family will be able to pool your collective knowledge of health conditions that might run in your family.
+                    </p>
+                </div>
+
+                <div class="col-md-8">
+                    <h4>Why Use Family Health Share?</h4>
+                    <p> &emsp;&emsp;Why use this application? Often enough it can be difficult when you go to the doctor and the doctor asks
+                        about your family health history. You might have heard that an aunt, or cousin had high blood pressure, or maybe a great grandmother
+                        had cancer. A lot of the times, many members of your family might have fragments of this information. This is where Family Health
+                        Share comes in. By having different family members pool their health history knowledge everyone might get a better understanding
+                        of the overall family health history</p>
+                </div>
+                </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <h2 id="how">How to get started</h2>
+
+                    <br/>
+
+                    <div id="step1">
+                        <h4>1. Create an Account</h4>
+                        <p>In the top right corner you will see a button that says, 'Sign In/Join'. Click on this to create your account, or sign in,
+                        using your email address and password. </p>
+                        <div id="pic"><img  src="img/signIn.png"/></div>
+                    </div>
+
+                    <div id="step2">
+                        <h4>2. Fill out your personal Information</h4>
+                        <p>On account creation you will be redirected to a personal information page. Please fill this out!
+                        Save when you're done.</p>
+                        <div id="pic"><img src="img/personalInfo.png" /></div>
+                    </div>
+
+                    <div id="step3">
+                        <h4>3. Add any personal health conditions you may have</h4>
+                        <p>The health conditions on your profile page are your own personal conditions. If you're comfortable with it,
+                        please enter your health conditions, which will be saved on our secure server. Just press the green 'Add
+                        Health Condition' button</p>
+                        <p>You will see a spot to select your specific condition from a dropdown list, as well as you will be
+                        able to add notes underneath</p>
+                        <div id="pic"><img src="img/addHealthCondition.png" /></div>
+                    </div>
+
+                    <div id="step4">
+                        <h4>4. Add a Family</h4>
+                        <p>You may have noticed the family section on your profile page. Don't fret too much when you see this is blank.
+                        This will automatically fill out when you create or join a family!</p>
+                        <p>The first step to adding a family is to click on the 'Family' link on the menu. On this page you will see two buttons.
+                        One of the buttons will say <strong>Create New Family</strong>, and the other will say <strong>Join Family</strong>.
+                        These are fairly self explanatory!</p>
+                        <p>If you're the first member of your family to register for Family Health Share, create a new family!</p>
+                        <div id="pic"><img src="img/createNewFamily.png" /></div>
+                        <p>If you have family members who have already signed up for Family Health Share, get the familyID and password
+                        from them, and join a family</p>
+                        <div id="pic"><img src="img/joinFamily.png"/></div>
+                    </div>
+
+                    <div id="step5">
+                        <h4>5. Check out your Family Information Page</h4>
+                        <p>Welp, there are serveral things going on, on the family page! Where do we even start? Don't panic.
+                        We'll go through everything one by one!</p>
+                        <div id="pic"><img src="img/" /></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </template>
