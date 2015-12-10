@@ -6,7 +6,9 @@
 
 body {
     background: white;
-    color: #666666; }
+    color: #666666;
+}
+
 
 #main {
     position: relative;
@@ -84,5 +86,33 @@ body {
     width: 40%;
     height: 40%;
 }
+
+#step5a img{
+    width: 60%;
+    height: 60%;
+}
+
+#step5b img{
+    width: 60%;
+    height: 60%;
+}
+
+#step5c img{
+    width: 60%;
+    height: 60%;
+}
+
+#step5d img{
+     width: 40%;
+     height: 40%;
+}
+
+#step6 img{
+    width: 40%;
+    height: 40%;
+}
 /* End about page */
 
+#loggedIn {
+    background: #BCD9F3;
+}
