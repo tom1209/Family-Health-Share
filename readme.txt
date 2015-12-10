@@ -32,7 +32,6 @@ TODO
 -Remove family from profile
 -Family needs to dynamically update user info and conditions when users change their information
 
--When adding a family, need to do a password and name check on the family password, and family name
 -Possibly displaying info on different family members health conditions notes, on family page
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
 -When clearing textarea in the family 'add new user' section after the first use of adding a new health condition, the text area will act like it is hold
