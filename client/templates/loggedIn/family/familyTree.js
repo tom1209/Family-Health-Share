@@ -23,7 +23,27 @@ Template.familyTree.rendered = function() {
         'draggable_option': true
     });
 
-}
+    /*
+     * This block is to get the current logged in user, and change their background in their family box
+     */
+    //Get the familyID of the logged in user
+    var userId = Meteor.userId();
+    var user = Meteor.users.findOne({_id: userId});
+    var fullName = user.profile.firstName + " " + user.profile.lastName;
+
+    $('div[data-user]').children().each(function(){
+        if($(this).attr('id') == 'name')
+        {
+            var curName = $(this).text();
+            if(curName == fullName)
+            {
+                $(this).parent('div').attr('id', 'loggedIn');
+            }
+
+        }
+
+    })
+};
 
 
 //Populating list with family information
@@ -34,6 +54,7 @@ Template.familyTree.helpers({
         var userId = Meteor.userId();
         var user = Meteor.users.findOne({_id: userId});
 
+        var fullName = user.profile.firstName + " " +user.profile.lastName;
         var familyId = user.profile.family.familyId;
 
         var family = Families.findOne({'familyID': familyId});
@@ -41,12 +62,11 @@ Template.familyTree.helpers({
 
         //return Families.find({'familyID': familyId});
         return familyMembers;
-    }
-})
+    },
 
-
-Template.familyTree.helpers({
+    //Onclick event to display user info
     'click #info': function(e){
-        e.preventDefault();
+
     }
-})
+});
+
