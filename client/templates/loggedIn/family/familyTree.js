@@ -39,22 +39,19 @@ Template.familyTree.rendered = function() {
             {
                 $(this).parent('div').attr('id', 'loggedIn');
             }
-
         }
-
     })
 };
 
 
 //Populating list with family information
 Template.familyTree.helpers({
-    familyTree: function() {
+    familyTree: function () {
 
         //Get the familyID of the logged in user
         var userId = Meteor.userId();
         var user = Meteor.users.findOne({_id: userId});
 
-        var fullName = user.profile.firstName + " " +user.profile.lastName;
         var familyId = user.profile.family.familyId;
 
         var family = Families.findOne({'familyID': familyId});
@@ -62,10 +59,17 @@ Template.familyTree.helpers({
 
         //return Families.find({'familyID': familyId});
         return familyMembers;
-    },
+    }
+});
 
+
+Template.familyTree.events({
     //Onclick event to display user info
-    'click #info': function(e){
+    'click #userInfo': function(e){
+        var curUserName = $(e.target).prev().html();
+        console.log(curUserName);
+
+
 
     }
 });

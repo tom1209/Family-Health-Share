@@ -3,13 +3,13 @@
         <div>
             <ul class="tree">
                 <li>
-                    <div>The {{currentUser.profile.family.familyName}} Family</div>
+                    <div id="treeTitle">The {{currentUser.profile.family.familyName}} Family</div>
                     <ul>
                         {{#each familyTree}}
                             <li>
                                 <div data-user="{{this.name}}">
-                                    <p id="name">{{this.name}}</p>
-                                    <button type="button" class="btn btn-primary btn-xs" id="info" data-toggle="modal" data-target="#infoModal">Info</button>
+                                    <p id="name" class="treeInfo">{{this.name}}</p>
+                                    <button type="button" class="btn btn-primary btn-xs" id="userInfo" data-toggle="modal" data-target="#infoModal">Info</button>
                                 </div>
                             </li>
                         {{/each}}
@@ -27,7 +27,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{this.name}}</h4>
+                    <h4 class="modal-title"></h4>
                 </div>
 
                 <div class="modal-body">

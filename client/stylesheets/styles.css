@@ -116,3 +116,10 @@ body {
 #loggedIn {
     background: #BCD9F3;
 }
+
+
+#treeTitle {
+    border: 2px solid black;
+    color: white;
+    background-color: cornflowerblue;
+}

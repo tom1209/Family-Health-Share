@@ -77,8 +77,7 @@ Template.noFamily.events({
 
     //////////This is for joining a family that already exists in the database//////////
     /*
-        NOTE: I updated here, but used a meteor method to insert. Reason being I was having some strange error.
-        I'll leave it like this for now, and change it over later.
+        NOTE: I updated the collection here, but used a meteor method to insert above, to try out the different ways to interact with a database
      */
     'click #joinFamily' : function(e,t) {
         e.preventDefault();
@@ -92,6 +91,10 @@ Template.noFamily.events({
 
         //Family user is trying to join
         var familyWithSameId = Families.findOne({familyID: family.familyID});
+        var joinFamInfo = {
+            familyName : familyWithSameId.familyName,
+            familyPassword : familyWithSameId.familyPassword
+        };
 
         //setting user info to add to families collection
         var user = Meteor.user();
@@ -110,6 +113,15 @@ Template.noFamily.events({
         //Checking to see if FamilyID the user is trying to join exists, if so updating both the Family and user collection
         if(familyWithSameId)
         {
+
+            //Display any family mismatch on name or password, errors
+            errors = checkFamily(family, joinFamInfo);
+            if(errors.familyPassword || errors.familyName)
+                return Session.set('familySubmitErrors', errors);
+
+
+
+
             //Getting the existing family health conditions
             var familyConditions = familyWithSameId.conditions;
             //Getting the health conditions from a user profile
