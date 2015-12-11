@@ -43,15 +43,12 @@ if(Families.find().count() ===0)
             //Dwight Schrute
             {
                 _Id: "ukMfBju66KoYT9a4j",
-                emails: [{
-                    address: "dwight@example.com",
-                    verified: false
-                }],
+                email:  "dwight@example.com",
                 DOB: "05/05/1971",
                 name: "Dwight Schrute",
                 firstName: "Dwight",
                 gender: "Male",
-                lastName: "Scranton",
+                lastName: "Schrute",
                 middleName: "K",
                 inactiveMember: true,
                 conditions:[
@@ -88,7 +85,7 @@ if(Families.find().count() ===0)
             //Mose Schrute
             {
                 _Id: "ka9s8dhasKoYT9a4j",
-                emails: "mose@example.com",
+                email: "mose@example.com",
                 DOB: "05/06/1983",
                 name: "Mose Schrute",
                 firstName: "Mose",
@@ -111,8 +108,8 @@ if(Families.find().count() ===0)
             //Eldred Schrute
             {
                 _Id: "u2sdBj2ksjd87ha4j",
-                emails: "eldred@example.com",
-                name: "Eldred Shcrute",
+                email: "eldred@example.com",
+                name: "Eldred Schrute",
                 DOB: "01/26/1944",
                 firstName: "Eldred",
                 gender: "Male",
@@ -134,7 +131,7 @@ if(Families.find().count() ===0)
             //Fannie Schrute
             {
                 _Id: "9skdjd7dajd87ha4j",
-                emails:"fannie@example.com",
+                email:"fannie@example.com",
                 name: "Fannie Schrute",
                 DOB: "01/22/1978",
                 firstName: "Fannie",
@@ -153,11 +150,11 @@ if(Families.find().count() ===0)
             //Jeb Schrute
             {
                 _Id: "9skdjd7dajd87ha4j",
-                emails: "jeb@example.com",
+                email: "jeb@example.com",
                 name: "Jeb Schrute",
                 DOB: "01/01/1981",
                 firstName: "Jeb",
-                gender: "Female",
+                gender: "Male",
                 lastName: "Schrute",
                 middleName: "J",
                 inactiveMember: true,
@@ -172,7 +169,7 @@ if(Families.find().count() ===0)
             //Agatha Schrute
             {
                 _Id: "9skdjd7dajd87ha4j",
-                emails: "agatha@example.com",
+                email: "agatha@example.com",
                 name: "Agatha Schrute",
                 DOB: "03/04/1952",
                 firstName: "Agatha",
