@@ -6,36 +6,39 @@
 
         <div id="personalInfo">
 
-            <div class="row">
-                <div class="col-md-2">Email:</div>
-                <div class="col-md-3">{{currentUser.emails.[0].address}}</div>
-            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{currentUser.emails.[0].address}}</td>
+                    </tr>
 
-            <div class="row">
-                <div class="col-md-2">First Name:</div>
-                <div class="col-md-3">{{currentUser.profile.firstName}}</div>
-            </div>
+                    <tr>
+                        <td>First Name:</td>
+                        <td>{{currentUser.profile.firstName}}</td>
+                    </tr>
 
-            <div class="row">
-                <div class="col-md-2">Last Name:</div>
-                <div class="col-md-3">{{currentUser.profile.lastName}}</div>
-            </div>
+                    <tr>
+                        <td>Last Name:</td>
+                        <td>{{currentUser.profile.lastName}}</td>
+                    </tr>
 
-            <div class="row">
-                <div class="col-md-2">Middle Name:</div>
-                <div class="col-md-3">{{currentUser.profile.middleName}}</div>
-            </div>
+                    <tr>
+                        <td>Middle Name:</td>
+                        <td>{{currentUser.profile.middleName}}</td>
+                    </tr>
 
-            <div class="row">
-                <div class="col-md-2">Gender:</div>
-                <div class="col-md-3">{{currentUser.profile.gender}}</div>
-            </div>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>{{currentUser.profile.gender}}</td>
+                    </tr>
 
-            <div class="row">
-                <div class="col-md-2">Date of Birth:</div>
-                <div class="col-md-3">{{currentUser.profile.DOB}}</div>
-            </div>
-
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td>{{currentUser.profile.DOB}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div id="editProfile">
                 <a href="{{pathFor 'profileEdit'}}"><button class="btn btn-primary">Edit Profile</button></a>
@@ -46,8 +49,19 @@
         <div id="familyInfo">
             <br/>
             <h3>Family Info</h3>
-            <p>Family: <strong>{{currentUser.profile.family.familyName}}</strong></p>
-            <p>FamilyID: <strong>{{currentUser.profile.family.familyId}}</strong></p>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>Family:</td>
+                        <td>{{currentUser.profile.family.familyName}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>FamilyID</td>
+                        <td>{{currentUser.profile.family.familyId}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div id="healthConditionInfo">
