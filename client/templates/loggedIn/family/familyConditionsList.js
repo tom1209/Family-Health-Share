@@ -27,6 +27,7 @@ Template.familyConditionsList.helpers({
         var family = Families.findOne({'familyID': familyId});
         var familyConditions = family.conditions;
 
+        //var sorted = familyConditions.find({}, {sort:{count:1}});
         return familyConditions;
     }
 });

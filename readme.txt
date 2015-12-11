@@ -18,7 +18,7 @@ Family Health Share
 For the error checking I followed the tutorial in the book Discover Meteor by Tom Coleman and Sasha Greif
 I based my own error checking and display of errors off of this
 
-**NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take them back off
+**NOTE** I put back on insecure to speed things up. Once I have all the functionality, I will take it back off
 
 TODO
 **Low Priority**
@@ -34,9 +34,10 @@ TODO
 
 -Possibly displaying info on different family members health conditions notes, on family page
 -Login and Logout redirect, but this error Error invoking Method 'eventsOnLoggedIn': Internal server error [500]
--When clearing textarea in the family 'add new user' section after the first use of adding a new health condition, the text area will act like it is hold
-a null value
-
+-'Add New User' button on family page will add a user, but will only add the first word of a condition with more than 1 name
+-Sort family conditions by count
+-Only highlights condition on family page with highest count, not all that have a count of over 5
+-Need to add conditions to inactive users, so if they are removed I can remove those conditions from the family document
 
 
 **Where I got description for health information**

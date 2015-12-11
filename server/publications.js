@@ -5,7 +5,7 @@
 
 
 //Publish health conditions collection
-/*
+
 Meteor.publish('healthConditions', function(){
     return HealthConditions.find();
 });
@@ -14,4 +14,4 @@ Meteor.publish('healthConditions', function(){
 Meteor.publish('families', function(){
     return Families.find();
 });
-*/
+

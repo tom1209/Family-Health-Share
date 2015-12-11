@@ -88,16 +88,31 @@ Template.addFamilyMember.events({
            return Session.set('addFamilyMemberSubmitErrors', errors);
 
        //Getting the conditions for this family member
-       var name = $('#addedCondition').text();
-       var notes = $('#notes').text();
+       var name = [];
+       var notes = [];
 
-       var conditions = [
+       //Get all the conditions
+       $("input[name='healthConditions[]']").each(function() {
+           name.push($(this).val());
+           console.log($(this).val());
+       });
+
+       //get all notes
+       $("input[name='notes[]']").each(function() {
+           notes.push($(this).val());
+       });
+
+        //add conditions and notes to update
+       var conditions = [];
+
+       //Putting notes and name of conditions into array of objects
+       for(var i=0; i <= name.length; i++)
+       {
+           if(name[i] != undefined)
            {
-               name: name,
-               notes: notes
+               conditions.push({name:name[i], notes:notes[i]});
            }
-       ]
-
+       }
 
        //Add the user to the family collection. They will be added to a new field, called 'inActiveMembers' in the collection
        var user = Meteor.user();
@@ -136,7 +151,10 @@ Template.addFamilyMember.events({
 
 
 
-       //Update family information, first conditions, then inactiveMember
+       /*
+            Update family information, first conditions, then members, setting inactive to true on that member
+        */
+       //Update Conditions in family
        Families.update(currentFamilyID._id, {$set: {conditions: familyConditions}}, function(error){
            if(error){
                throwError(error.reason);
@@ -147,16 +165,6 @@ Template.addFamilyMember.events({
            }
        });
 
-       //Update family information with new inactive user
-       Families.update(currentFamilyID._id, {$set: {inactiveMembers: userInfo}}, function(error){
-           if(error){
-               throwError(error.reason);
-           }
-           else
-           {
-               console.log("Inactive family member added");
-           }
-       });
 
        var familyMember = _.extend(userInfo,{
            inactiveMember : true,
@@ -186,7 +194,8 @@ Template.addFamilyMember.events({
         //error checking the condition inputs
         //Get the value from the user input
         var healthCondition = t.find('#addCondition').value;
-        var notes = t.find('#notes').value;
+        //var notes = t.find('#notes').value;
+        var notes = $('textarea').val();
 
         //To hold errors if any
         var errors = {};
@@ -204,13 +213,13 @@ Template.addFamilyMember.events({
 
         //Displaying the conditions in the form once they are added
         $('#healthConditions').append("<div>");
-        $('#healthConditions').append("<p><strong>Condition:</strong><span id='addedCondition'>" + healthCondition + "</span></p>");
-        $('#healthConditions').append("<p><strong>Notes: </strong><span id='notes'>" + notes + "</span></p>");
+        $('#healthConditions').append("<p><strong>Condition:</strong><input class='form-control' type='text' name='healthConditions[]' id='healthCondition' readonly value="+healthCondition+"></p>");
+        $('#healthConditions').append("<p><strong>Notes: </strong><input class='form-control' type='text' name='notes[]' id='notes' readonly value="+notes+"></p>");
         $('#healthConditions').append("</div>");
 
         //Reset textbox and text area for health condition and notes
         $('#addCondition').val("");
-        $("#notes").val("");
+        $('textarea').val('');
 
     }
 });
