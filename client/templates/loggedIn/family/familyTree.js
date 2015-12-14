@@ -143,7 +143,10 @@ Template.familyTree.events({
                     }
                 }
 
-                //user profile info
+                //inactive user info
+
+
+                //active profile info
                 userInfo.name = user.profile.firstName + " " + user.profile.middleName + " " + user.profile.lastName;
                 userInfo.gender = user.profile.gender;
                 userInfo.birthday = user.profile.DOB;

@@ -24,7 +24,6 @@ underscore
 ejson
 check
 sacha:spin
-event-hooks
 lookback:dropdowns
 mizzao:autocomplete
 accounts-base
@@ -35,3 +34,4 @@ rajit:bootstrap3-datepicker
 dbernhard:jquery-ui-draggable
 drewproud:jquery-ui-droppable
 autopublish
+differential:event-hooks
